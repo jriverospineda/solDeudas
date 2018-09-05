@@ -1,0 +1,30 @@
+.form-control {
+	padding: 0.25rem 0.50rem;
+	}
+label {
+	margin-bottom: .0rem;
+	}
+select.form-control:not([size]):not([multiple]) {
+  height: calc(1.75rem + 2px);
+	}
+.btn {
+	line-height: 1;
+	}
+label.error {
+		color: red;
+	}
+
+.table table-bordered {
+	padding: 0.25rem;
+}
+
+ input {
+	border-radius:0rem !important;
+	height: 25px;
+	}
+.no-padding {
+	padding: 0rem;
+}
+.table td, .table th {
+	padding: 0.3rem;
+}

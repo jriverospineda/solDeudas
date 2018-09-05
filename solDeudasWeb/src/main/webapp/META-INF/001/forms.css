@@ -1,0 +1,28 @@
+
+
+.date {
+	background-position: left center;
+	width: 98px;
+	padding-left: 20px;
+	background-image: url(img/calendar.png);
+	background-repeat: no-repeat;
+}
+
+form select, form textarea {
+      vertical-align: top;
+      font-size: 12px;
+      border: 1px solid #d5d5d5;
+      }
+      
+/** errores de validacion */
+.inputerror {color: red; vertical-align: top; font-size: 90%;}
+
+/** botones */
+.btn { font-family:Arial, Helvetica, sans-serif; color:#656565; font-size:12px; line-height:29px; background:url(../images/btn.gif) 0 100% repeat #537490; font-weight:bold; padding:0 23px; height:29px; display:inline-block; color:#fff; margin:0 16px 0 0; }
+.btn:hover { background-position:0 0; text-decoration:none; }
+
+/*anchos*/
+.w208{ width:208px;}
+
+/*formulario*/
+.input{ border:1px solid #d0d0d0; font-size:12px; padding:6px 10px; color:#255988; font-family:Arial, Helvetica, sans-serif; color:12px; margin:0;}

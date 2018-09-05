@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+    http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<on-start>
+		<evaluate expression="cambiaClaveService.getCambiaClaveCommand()" result="flowScope.cambiaClave" />
+		<evaluate expression="cambiaClaveService.getFichasolDeudas( externalContext.nativeRequest )" result="flowScope.fichasolDeudas" />
+		<evaluate expression="cambiaClaveService.initIntentos()" result="flowScope.intentos" />
+	</on-start>
+
+	<!-- solicita los datos -->
+	<view-state id="step1View" view="cambiaClave/step1" model="cambiaClave">
+		<transition on="doStep2" to="doStep2Action"/>
+	</view-state>
+
+	<!-- valida y hace cambio de clave -->
+	<action-state id="doStep2Action">
+		<evaluate expression="cambiaClaveService.validaClavePregunta( cambiaClave, fichasolDeudas )" result="flowScope.validaClave" />
+			<transition on="yes" to="step2View">
+			    <evaluate expression="cambiaClaveService.cambiaClave( cambiaClave, fichasolDeudas )" result="flowScope.fichasolDeudas"/>
+			</transition>
+			<transition on="no" to="step1View">
+			    <evaluate expression="cambiaClaveService.addIntento( intentos )" result="flowScope.intentos" />
+				<evaluate expression="cambiaClaveService.getErrorsolDeudas( intentos )" result="flashScope.message" />
+			</transition>
+	</action-state>
+	
+	<!-- informa que todo se realizo (no hay confirmacion) -->
+	<view-state id="step2View" view="cambiaClave/step2">
+		<transition on="doStep3" to="step3View"/>
+	</view-state>	
+
+	<!--  el comprobante en PDF -->
+	<view-state id="step3View" view="commons/pdfComprobante">
+	    <on-render>
+	        <set name="flashScope.urlBodyPdf" value="'cambiaClave/comprobante'" type="string"/>
+	    </on-render>
+	</view-state>	
+			
+</flow>

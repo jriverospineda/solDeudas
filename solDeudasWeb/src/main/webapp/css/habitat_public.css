@@ -1,0 +1,566 @@
+body { font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#676666;}
+* { margin:0; padding:0; list-style:none; border:none;}
+a { text-decoration:none;}
+a:hover { text-decoration:underline;}
+a:focus { outline:none;}
+.clear { clear:both; display:block;}
+.divclear {width:100%; height:1px; overflow:hidden; clear:both; display:block;}/*nuevo*/
+.divclear-dos {width:100%; height:20px; overflow:hidden; clear:both; display:block;}/*nuevo*/
+.divclear-tres {width:100%; height:1px; border-bottom:1px solid #dcdcdc; margin:40px 0 0; overflow:hidden; clear:both; display:block;}/*nuevo*/
+.divclear-cuatro {width:100%; height:1px; border-bottom:1px solid #b1bbce; margin:30px 0 25px; overflow:hidden; clear:both; display:block;}/*nuevo*/
+.divclear-cinco {width:100%; height:1px; border-bottom:1px solid #b1bbce; margin:0; overflow:hidden; clear:both; display:block;}/*nuevo*/
+.divclear-seis {width:100%; height:1px; border-bottom:1px solid #b1bbce; margin:11px 0 25px; overflow:hidden; clear:both; display:block;}/*nuevo*/
+.left { float:left;}
+.right { float:right;}
+img.ico-left {float:left; margin:10px 10px 0 0;}
+.acenter {text-align:center;} /*nuevo*/
+.ml_40px { margin:0 0 0 40px;}
+.ml_41px { margin:0 0 0 41px;}
+.ml_39px { margin:0 0 0 39px;}
+.ml_38px { margin:0 0 0 39px;}
+.ml_16px { margin:0 0 0 17px;}
+
+
+.contenido { width:945px; margin:0 auto;}
+
+#top { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bg_top.jpg) left top repeat-x; height:133px; border-top:solid 1px #263c75;}
+
+#top .menu_top { text-align:right; height:28px;}
+#top .menu_top ul { padding:0 0 0 0; height:24px;}
+#top .menu_top ul li { display:inline; padding:0 11px; font-size:12px; vertical-align:middle; line-height:14px; height:24px; }
+#top .menu_top ul li img { vertical-align:middle; padding:0px 0 0 0;}
+#top .menu_top ul li.redes { padding:0 0 0 3px;}
+#top .menu_top ul li.redes.prim { padding:0; margin:0 -1px 0 0;}
+#top .menu_top ul li.redes a { padding:0;}
+#top .menu_top ul li a { color:#fff; padding:4px 0 0 0; display:inline-block;}
+#top h1 { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/logo_top.jpg) left top no-repeat; width:291px; height:72px; margin:18px 0 0 0; cursor:pointer;}
+#top h1 span { display:none;}
+
+#top .buscar { float:right; margin:39px 0 0 0;}
+#top .buscar .caja { vertical-align:middle; border-bottom:solid 1px #d0d0d0; border-left:solid 1px #d0d0d0; border-top:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#656565; padding:3px 0 4px 10px; width:165px;}
+#top .buscar a.buscar_btn { vertical-align:middle; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_buscar.jpg) left top no-repeat; width:64px; height:24px; display:inline-block;}
+#top .buscar a.buscar_btn:hover { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_buscar.jpg) right top no-repeat;}
+
+#nav { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bg_nav.jpg) left top repeat-x; height:78px; overflow:hidden;}
+#nav ul { padding:0;}
+#nav ul li { text-align:center; display:block; float:left; font-size:15px;}
+#nav ul li a.ult { background:none;}
+#nav ul li .capa1 {display: table; height:50px; #position: relative; overflow: hidden;}
+#nav ul li .capa1 .capa2 {#position: absolute; #top: 50%;display: table-cell; vertical-align: middle;}
+#nav ul li .capa1 .capa2 .capa3 {#position: relative; #top: -50%}
+#nav ul li a { color:#656565; display:inline-block; padding:14px 20px 0 20px; height:62px;background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bg_separa_menu_ppl.jpg) right 16px no-repeat;}
+#nav ul li a:hover { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/top_menu_on.jpg) left top repeat-x #fff; border-left:solid 3px #dcdbdb; border-right:solid 3px #dcdbdb; margin:0px -3px 0 -6px; padding:13px 20px 0px 23px; text-decoration:none;}
+
+#info_import { margin:8px 0 9px 0; background:#ffffcd;}
+#info_import .contenido  { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/ico_alert.jpg) 1px 5px no-repeat; padding:10px 0 0 32px; width:913px; font-size:11px; line-height:12px; color:#656565; height:21px; font-weight:bold;}
+
+#bottom { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bg_btm.jpg) left top repeat-x #f5f5f5; min-height:214px; height:auto !important; height:214px;}
+#bottom .logo { float:left; margin:36px 0 0 0; padding:55px 0 0 12px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_btm.jpg) right top no-repeat; width:233px; height:123px;}
+#bottom .menu { float:left; margin:36px 0 0 0;  padding:13px 17px 0 39px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_btm.jpg) right top no-repeat; height:130px;}
+#bottom .menu ul { float:left; width:150px; padding:0;}
+#bottom .menu ul li { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_btm.gif) left 3px no-repeat; padding:0 0 18px 13px; line-height:14px; font-size:11px;}
+#bottom .menu ul li a { color:#255988;}
+#bottom .redes { float:left; margin:36px 0 0 0; padding:13px 0 0 40px; color:#5f7aae; font-size:12px; width:142px;}
+#bottom .redes ul { padding:10px 0 13px 0; height:24px;}
+#bottom .redes ul li { float:left; margin:0 6px 0 0;}
+#bottom .redes .phone { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_btm_redes.gif) left top no-repeat; padding:17px 0 0 0; color:#647bad;}
+#bottom .redes .phone span { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/phone_btm.gif) left top no-repeat; display:block; padding:0px 0 0 30px;}
+#bottom .redes .phone span strong { color:#265a89;}
+
+
+#banner_ppal { height:347px; position:relative; margin:0 0 21px 0;}
+#banner_ppal .loguin { position:absolute; top:0px; left:0px; width:216px; height:112px; background:#263c75; z-index:20; padding:13px 0 0 29px;}
+#banner_ppal .loguin h3 { color:#fff; font-size:19px; text-transform:uppercase; font-weight:normal; letter-spacing:-0.01em; padding:0 0 13px 0; line-height:19px;}
+#banner_ppal .loguin a.ingresa_btn { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_inge_aqui.jpg) left top no-repeat; width:185px; height:32px; display:inline-block;}
+#banner_ppal .loguin a.ingresa_btn:hover { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_inge_aqui.jpg) right top no-repeat;}
+
+#banner_ppal .loguin ul { padding:14px 0 0 0;}
+#banner_ppal .loguin ul li { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_log.png) left 1px no-repeat; padding:1px 15px 3px 11px; float:left; font-size:11px;}
+#banner_ppal .loguin ul li a { color:#fff;}
+
+#banner_ppal .cont { overflow:hidden; font-size:12px;}
+#banner_ppal .cont ul { width:4725px;}
+#banner_ppal .cont ul li { width:945px; float:left; position:relative; height:347px;}
+#banner_ppal .cont ul li .img {}
+#banner_ppal .cont ul li .opacidad { position:absolute; bottom:0px; left:0px; height:91px; width:945px;filter: alpha(opacity=70); opacity: .7; background:#FFF;}
+#banner_ppal .cont ul li .txt { position:absolute; left:26px; bottom:16px;}
+#banner_ppal .cont ul li .txt a { color:#6f6f6f; font-size:23px; line-height:30px;}
+#banner_ppal .cont ul li .txt a span { color:#4075a4; font-size:27px; display:block;}
+#banner_ppal .cont ul li .txt a:hover span { text-decoration:underline;}
+#banner_ppal .botones { position:absolute; right:21px; bottom:18px; z-index:20;}
+#banner_ppal .botones ul { height:50px;}
+#banner_ppal .botones ul li { float:left; margin:0 0 0 10px;}
+#banner_ppal .botones ul li a.atras { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_anterior_carrusel.png) left top no-repeat; width:51px; height:50px; display:block;}
+#banner_ppal .botones ul li a.atras:hover { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_anterior_carrusel.png) right top no-repeat;}
+#banner_ppal .botones ul li a.avanza { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_avanza_carrusel.png) left top no-repeat; width:50px; height:50px; display:block;}
+#banner_ppal .botones ul li a.avanza:hover { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_avanza_carrusel.png) right top no-repeat;}
+
+
+
+#content { height:auto !important; padding:0 0 48px 0;}
+#content .cont_bajo {}
+#content .links_home { width:245px; padding:0 0 41px 0;}
+#content .links_home ul.links {}
+#content .links_home ul.links li { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo.png) left 12px no-repeat; padding:11px 0 9px 17px; border-bottom:solid 1px #ccc; line-height:15px; font-size:14px;}
+#content .links_home ul.links li a { color:#255988;}
+
+#content .asesorate { width:659px; padding:0 0 41px 0;}
+#content .asesorate h4 { color:#777777; font-size:14px; text-transform:uppercase; padding:8px 0 16px 0;}
+#content .asesorate h4 span { color:#263c75;}
+#content .asesorate ul { height:103px; padding:0 0 0 0;}
+#content .asesorate ul li { position:relative; width:126px; height:103px; float:left; margin:0 7px 0 0;}
+#content .asesorate ul li.penult { margin:0 8px 0 0;}
+#content .asesorate ul li.ult { margin:0;}
+#content .asesorate a:hover { text-decoration:none;}
+#content .asesorate a .tool { display:none; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bg_tool_tip.png) left top no-repeat; width:174px; height:54px; text-align:center; position:absolute; z-index:10; left:-24px; top:-47px; color:#FFF; padding:16px 0 0 0;}
+#content .asesorate a:hover .tool { display:block; text-decoration:none;}
+#content .asesorate .img { border:solid 1px #d9deef; position:absolute; top:0px; left:0px;}
+#content .asesorate .opacidad {position:absolute; bottom:-1px; left:1px; height:21px; width:124px;filter: alpha(opacity=70); opacity: .7; background:#263c75;}
+#content .asesorate .txt {position:absolute; left:8px; bottom:2px; color:#fff; font-size:12px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo2.png) left 2px no-repeat; padding:0 0 0 10px;}
+
+#content .menu_acordeon { width:245px; border-top:solid 1px #c9c9c9;}
+#content .menu_acordeon h4 { border-left:solid 1px #c9c9c9; border-right:solid 1px #c9c9c9;}
+#content .menu_acordeon h4 span {border:solid 1px #fff; background:#e5e4e4; color:#263c75; font-size:14px; line-height:15px; padding:13px 0 15px 14px; display:block;}
+#content .menu_acordeon ul { border:solid 1px #d9d7d7;}
+#content .menu_acordeon ul li { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_abajo.png) 213px 12px no-repeat #f3f3f3; border-bottom:solid 1px #d9d7d7; border-left:solid 1px #fff; border-right:solid 1px #fff; border-top:solid 1px #fff; line-height:14px; padding:7px 0 8px 15px;}
+#content .menu_acordeon ul li:hover { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_abajo.png) 213px 12px no-repeat #fff;}
+#content .menu_acordeon ul li.ult {border-bottom:none;}
+#content .menu_acordeon ul li a { color:#676666; display:block;}
+#content .menu_acordeon ul li a:hover { text-decoration:none;}
+#content .menu_acordeon ul li.activo {background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_arriba.png) 213px 12px no-repeat #fff;}
+#content .menu_acordeon ul li.activo a { font-weight:bold; font-size:13px; color:#255988; }
+
+#content .menu_acordeon #modu { margin:6px 14px 0 0; display:block; font-size:11px; min-height:167px; height:auto !important; height:167px; color:#255988;}
+#content .menu_acordeon #modu .txt10 { font-size:10px;}
+#content .menu_acordeon #modu table { margin:0 0 10px 0;}
+#content .menu_acordeon #modu table th { background:#bdcddb; color:#255988;  padding:3px 0 4px 3px;}
+#content .menu_acordeon #modu table td { padding:2px 0 3px 10px;}
+#content .menu_acordeon #modu table td.t_right { text-align:right; padding:0 15px 0 0;}
+#content .menu_acordeon #modu table tr.uno { background:#f2f1f1;}
+#content .menu_acordeon #modu table tr.dos { background:#fbfafa;}
+#content .menu_acordeon #modu a { font-size:10px; font-weight:normal; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_btm.gif) left 2px no-repeat; padding:0 0 0 8px; text-decoration:underline; color:#255988;}
+
+#content .menu_acordeon #modu ul.lista { border:none; padding:0 0 7px 0;}
+#content .menu_acordeon #modu ul.lista li { padding:0; margin:0; border-bottom:solid 1px #ebebeb; background:none; line-height:14px;}
+#content .menu_acordeon #modu ul.lista li a { color:#676666; text-decoration:none; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo3.png) left 5px no-repeat; padding:5px 0 7px 11px; font-size:11px;}
+#content .menu_acordeon #modu ul.lista li a span { text-decoration:underline;}
+#content .menu_acordeon #modu ul.lista li a:hover { text-decoration:underline;}
+
+
+#content .menu_acordeon #modu ul.fondos { border:none;}
+#content .menu_acordeon #modu ul.fondos li { padding:0; margin:0; background:none; display:inline-block; border-bottom:none;}
+#content .menu_acordeon #modu ul.fondos li a { display:inherit; background:none; text-decoration:none; padding:0; margin:0;}
+#content .menu_acordeon #modu ul.fondos li a:hover { text-decoration:underline;}
+#content .menu_acordeon #modu ul.fondos li a.a { border:solid 1px #a9a9d8; width:16px; text-align:center; background:#babae3;}
+#content .menu_acordeon #modu ul.fondos li a.b { border:solid 1px #abb6d5; width:16px; text-align:center; background:#bbc7e7;}
+#content .menu_acordeon #modu ul.fondos li a.c { border:solid 1px #a4bace; width:16px; text-align:center; background:#bbcedf;}
+#content .menu_acordeon #modu ul.fondos li a.d { border:solid 1px #acd0db; width:16px; text-align:center; background:#bcdde7;}
+#content .menu_acordeon #modu ul.fondos li a.e { border:solid 1px #a7d2d0; width:16px; text-align:center; background:#b5e1df;}
+
+#content .menu_acordeon #modu .img { display:block; margin:10px 0 5px 0;}
+
+
+#content .productos { width:321px; border-top:solid 4px #e5e4e4;}
+#content .productos h4 { border-left:solid 4px #e5e4e4; border-right:solid 4px #e5e4e4;}
+#content .productos h4 span { color:#263c75; font-size:14px; line-height:15px; padding:13px 0 14px 14px; display:block;}
+#content .productos ul { border-bottom:solid 4px #e5e4e4;  border-left:solid 4px #e5e4e4;  border-right:solid 4px #e5e4e4;}
+#content .productos ul li {line-height:14px; margin:0;}
+#content .productos ul li .linea_sobre {background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/linea_separa.gif) 15px top no-repeat ; display:block; padding:17px 0 19px 15px;}
+#content .productos ul li.ult {border-bottom:none;}
+#content .productos ul li a { color:#676666; display:block; background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_abajo.png) 263px 9px no-repeat; padding:5px 0 5px 10px;}
+#content .productos ul li a:hover { text-decoration:none;}
+#content .productos ul li.activo {background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_arriba.png) 277px 29px no-repeat #f5f5f5;}
+#content .productos ul li:hover {background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/linea_separa.gif) 15px top no-repeat #f5f5f5;}
+#content .productos ul li.activo a { font-weight:bold; font-size:13px; color:#255988; background:none; padding:6px 0 0 11px; }
+#content .productos #modu { padding:0 0 8px 0; display:block;}
+#content .productos #modu ul.lista { border:none; padding:18px 0 0px 11px;}
+#content .productos #modu ul.lista li { float:left; background:none; padding:15px 0 3px 0; margin:0; width:143px;}
+#content .productos #modu ul.lista li a { color:#255988; font-size:12px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo.png) left 2px no-repeat; padding:0 0 0 13px; font-weight:normal; text-decoration:underline;}
+#content .productos #modu ul.lista li.primer { width:120px;}
+
+
+
+
+#content .destacados { width:313px; border:solid 4px #e5e4e4; padding:0 0 11px 0;}
+#content .destacados h4 { }
+#content .destacados h4 span { color:#263c75; font-size:14px; line-height:15px; padding:13px 0 14px 14px; display:block;}
+#content .destacados ul.destaca {background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/linea_separa.gif) 15px bottom no-repeat;}
+#content .destacados ul.destaca li { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/linea_separa.gif) 15px top no-repeat; line-height:14px; padding:25px 0 0 19px; height:65px; margin:0; display:block;}
+#content .destacados ul.destaca li span { display:block;}
+#content .destacados a {font-size:12px; font-weight:normal; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_btm.gif) left 4px no-repeat; padding:0 0 19px 15px; text-decoration:underline; color:#255988; margin: 0 0 0 15px;}
+#content .destacados .fecha { width:82px !important;line-height:35px; float:left; }
+#content .destacados .fecha .dia { color:#255988; font-size:40px; width:47px; float:left;}
+#content .destacados .fecha .mes_anio { color:#255988; font-size:23px; line-height:22px; width:35px; float:left;}
+#content .destacados .fecha .mes_anio .anio { font-size:13px; line-height:8px;}
+#content .destacados .txt { float:left; width:200px; line-height:14px; font-size:12px; display:block;}
+#content .destacados .txt a { background:none; padding:7px 0 0 10px; display:block; margin:0; font-size:12px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo6.png) left 10px no-repeat;}
+#content .destacados .des_link { padding:20px 15px 0 0;}
+#content .destacados .des_link ul { float:right; height:25px;}
+#content .destacados .des_link ul li { float:left; margin:0 0 0 3px;}
+#content .destacados .des_link ul li a { height:25px; width:25px; margin:0; padding:0; background:none;}
+#content .destacados .des_link ul li a.left { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/paginador_left.png) left top no-repeat;}
+#content .destacados .des_link ul li a.left:hover { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/paginador_left.png) right top no-repeat;}
+#content .destacados .des_link ul li a.right { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/paginador_right.png) right top no-repeat;}
+#content .destacados .des_link ul li a.right:hover { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/paginador_right.png) left top no-repeat;}
+
+
+/******** interior **********/
+.interior { padding:8px 0 0 0;}
+.interior p { padding:0 0 12px 0; font-size:12px;}
+.interior h1 { color:#255988; font-size:26px; font-weight:normal;}
+.col_left { width:245px;}
+.col_right { width:661px;}
+
+#content .menu_left_int { width:245px; border-top:solid 1px #c9c9c9; margin:0 0 40px 0;}
+#content .menu_left_int h4 { border-left:solid 1px #c9c9c9; border-right:solid 1px #c9c9c9;}
+#content .menu_left_int h4 span {border:solid 1px #fff; background:#e5e4e4; color:#263c75; font-size:14px; line-height:15px; padding:13px 0 14px 14px; display:block;}
+#content .menu_left_int ul { border:solid 1px #d9d7d7;}
+#content .menu_left_int ul li { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo4.png) 7px 8px no-repeat #f3f3f3; border-bottom:solid 1px #d9d7d7; border-left:solid 1px #fff; border-right:solid 1px #fff; border-top:solid 1px #fff; line-height:14px; padding:7px 0 9px 24px; font-size:14px;}
+#content .menu_left_int ul li:hover { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo4.png) 7px 8px no-repeat #fff;}
+#content .menu_left_int ul li.ult {border-bottom:none;}
+#content .menu_left_int ul li a { color:#255988; display:block;}
+#content .menu_left_int ul li a:hover { text-decoration:none;}
+#content .menu_left_int ul li.activo { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo5.png) 7px 10px no-repeat #fff;}
+#content .menu_left_int ul li.activo a { font-size:13px; color:#255988;}
+#content .menu_left_int ul li.activo li a.current { text-decoration:underline;}
+
+#content .menu_left_int ul li ul { border:none; padding:5px 0 0 0;}
+#content .menu_left_int ul li ul li { border:none; padding:0 0 10px 8px; margin:0; background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo6.png) left 2px no-repeat #fff; width:180px; line-height:14px;}
+#content .menu_left_int ul li ul li:hover {background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo6.png) left 2px no-repeat #fff; }
+#content .menu_left_int ul li ul li a { font-weight:normal;}
+#content .menu_left_int ul li ul li a:hover { text-decoration:underline;}
+
+#content .loguin2 { width:216px; height:110px; background:#263c75; z-index:20; padding:16px 0 0 29px; margin:0 0 45px 0;}
+#content .loguin2 h3 { color:#fff; font-size:19px; text-transform:uppercase; font-weight:normal; letter-spacing:-0.01em; padding:0 0 14px 0; line-height:19px;}
+#content .loguin2 a.ingresa_btn { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_inge_aqui.jpg) left top no-repeat; width:185px; height:32px; display:inline-block;}
+#content .loguin2 a.ingresa_btn:hover { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_inge_aqui.jpg) right top no-repeat;}
+
+#content .loguin2 ul { padding:15px 0 0 0;}
+#content .loguin2 ul li { background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_log.png) left 1px no-repeat; padding:0 15px 3px 11px; float:left; font-size:11px;}
+#content .loguin2 ul li a { color:#fff;}
+
+#content .carrusel_left {}
+#content .carrusel_left ul.icos { height:14px; margin:0 0 10px 0}
+#content .carrusel_left ul.icos li { float:left; margin:0 6px 0 0;}
+#content .carrusel_left ul.icos li a { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/ico_carr.png) right top no-repeat; width:14px; height:14px; display:block; }
+#content .carrusel_left ul.icos li a:hover, #content .carrusel_left ul.icos li a.activo {background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/ico_carr.png) left top no-repeat;}
+
+#content .carrusel_left ul.fotos { width:245px;} 
+#content .carrusel_left ul.fotos li { color:#515151; font-size:12px; }
+#content .carrusel_left ul.fotos li span { display:block;}
+#content .carrusel_left ul.fotos li .img { padding:0 0 7px 0;}
+#content .carrusel_left ul.fotos li .tit { color:#255988;font-weight:bold; padding:0 0 6px 0; font-size:12px; line-height:14px;}
+#content .carrusel_left ul.fotos li .txt {color:#515151; line-height:14px;}
+#content .carrusel_left a { text-decoration:none;}
+
+
+
+
+
+
+.miga1 { font-size:10px; border-bottom:solid 1px #dbd9d9; padding:5px 0 9px 0; line-height:10px; margin:0 0 13px 0;}
+.miga1 a.volver { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/ico_volver.png) left 2px no-repeat; padding:0 0 0 10px; float:right; color:#6e6e6e; font-size:11px;}
+.miga1 a { color:#6e6e6e; }
+.miga1 span { color:#255988; font-weight:bold;}
+
+.miga2 { font-size:10px; border-top:solid 1px #dbd9d9; padding:3px 0 0 0; line-height:10px; margin:90px 0 0 0;}
+.miga2 a.subir { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/ico_subir.png) left 2px no-repeat; padding:0 0 0 12px; float:right; color:#6e6e6e; font-size:11px;}
+.miga2 a { color:#6e6e6e; }
+.miga2 span { color:#255988; font-weight:bold;}
+
+.herramientas { color:#6e6e6e; padding:0 0 15px 0; font-size:10px; line-height:10px; margin:2px 0 0 0;}
+.herramientas a { color:#6e6e6e; }
+.herramientas a.print { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/ico_print.png) right top no-repeat; padding:0 23px 0 0; margin:0 7px;}
+.herramientas a.mas { color:#4b4a4a; font-size:16px; font-weight:bold; margin:0 0 0 7px; line-height:10px !important; padding:0;}
+.herramientas a.menos { color:#4b4a4a; font-size:12px;}
+.herramientas .fb { margin:0 7px 0 4px;}
+.herramientas .tw { margin:0 7px 0 0;}
+.herramientas .mail { margin:0 7px 0 0;}
+.herramientas img { vertical-align:middle; padding:0 0 2px 0;}
+
+.img_right { float:right; margin:0 0 17px 17px; border:solid 1px #f3f3f3;}
+
+
+/*nuevos estilos*/
+.interior p a {color:#255988; font-weight:bold; text-decoration:underline;}
+.interior p a.btn_azul { font-weight:normal;}
+.interior p a:hover {color:#be2f38;}
+.interior p.p-azul {color:#255988;}
+.pag-int1 h1 {margin:0;}
+.pag-int1 h2 {font-size:16px; color:#255988; margin:0 0 10px;}
+.pag-int1 h2.h2-gris {font-size:18px; color:#515151; font-weight:normal; margin:0 0 10px;}
+.pag-int1 h3 {color:#255988; font-size:12px; margin:0 0 15px;}
+.pag-int1 h4 {color:#223f5a; font-size:14px; margin:0 0 10px;}
+
+.pag-int1 .centrado{ padding:0 0 0 350px;}
+.pag-int1 span.gris-large {font-size:18px; font-weight:bold;}
+.pag-int1 input.btn-uno {background:#255988; font-size:16px; color:#FFF; font-weight:bold; padding:11px 30px; border:none; font-family:Arial; margin:0; cursor:pointer; float:left;}
+.pag-int1 input.btn-dos {background:#255988; font-size:14px; color:#FFF; font-weight:bold; padding:8px 30px; border:none; font-family:Arial; cursor:pointer; margin:0 0 0 10px;}
+input.btn-tres {background:#255988; font-size:16px; color:#FFF; font-weight:bold; padding:11px 30px; border:none; font-family:Arial; margin:0; cursor:pointer;}
+.pag-int1 a.btn-uno {background:#255988; font-size:16px; color:#FFF; font-weight:bold; padding:11px 30px; border:none; font-family:Arial; margin:50px 0 0;}
+.pag-int1 a.btn-uno:hover {background:#999; text-decoration:none;}
+.pag-int1 span.nota {color:#990101; font-size:11px;}
+.pag-int1 a.prev {background:#ebebeb;  color:#6e6e6e; line-height:15px; font-size:11px; text-decoration:none; margin:0px 5px 0 0; display:block; padding:13px 20px 14px; float:left;}
+.pag-int1 a.prev:hover {color:#255988;}
+/**/
+table.tabla-uno {font-size:12px; color:#515151; margin:20px 0 30px;}
+table.verifica{margin:20px 0 16px;}
+table.tipofondo{ margin:10px 0 0;}
+table.tabla-uno td {padding:0 0 10px;}
+table.tabla-uno td.td-mar {padding:10px 0;}
+table.tabla-uno input.campo {width:98%; border:1px solid #e1e1e1; padding:7px 2px; font-size:12px; color:#515151; font-family:Arial;}
+table.tabla-uno input.campo_170 { width:170px; border:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px; padding:6px 0 5px 5px; color:#515151;}
+table.tabla-uno input.campo_35 { width:35px; border:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px; padding:6px 0 5px 5px; color:#515151;}
+table.tabla-uno td a {color:#255988; font-weight:bold; font-size:11px; text-decoration:underline;}
+table.tabla-uno td a:hover {color:#be2f38;}
+/**/
+table.tabla-dos {font-size:12px; color:#515151; margin:20px 0 30px; border-collapse:collapse;}
+table.tabla-dos td {padding:6px 0; border-right:2px solid #d9d9d9;}
+table.tabla-dos th {background:#ececec; padding:5px 12px; font-weight:normal; border-bottom:2px solid #FFF; border-right:2px solid #ececec;}
+table.tabla-dos th.th-uno {font-weight:bold; font-size:15px;}
+table.tabla-dos td.td-uno {background:#d9d9d9; border-right:none;}
+table.tabla-dos td.td-dos {background:#d9d9d9; border-bottom:2px solid #d9d9d9; border-right:none;}
+table.tabla-dos td.td-tres {border-bottom:2px solid #d9d9d9; font-weight:bold;}
+table.tabla-dos td.td-cuatro {font-weight:bold;}
+/**/
+table.tabla-tres {font-size:12px; color:#515151; margin:1px 0 10px;}
+div.box-dos-int table.tabla-tres {margin:0 auto 0;}
+table.tabla-tres th {font-weight:normal; padding:0 0 5px;}
+table.tabla-tres input.campo-uno {width:208px; border:1px solid #d0d0d0; padding:5px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+table.tabla-tres input.campo-unofono {width:139px; border:1px solid #d0d0d0; padding:5px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+table.tabla-tres select.campo-uno {width:228px; border:1px solid #d0d0d0; padding:5px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+table.tabla-tres select.campo-unofono {width:65px; border:1px solid #d0d0d0; padding:4px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+table.tabla-tres select.campo-nac {width:70px; border:1px solid #d0d0d0; padding:4px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+table.tabla-tres input.campo-dos {width:50px; border:1px solid #d0d0d0; padding:5px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+table.tabla-tres input.campo-tres {width:70px; border:1px solid #d0d0d0; padding:5px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+div.box-dos-int table.tab-left {margin:0 0 0 10px;}
+table.tabla-tres input.campo_170 { width:170px; border:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px; padding:6px 0 5px 5px; color:#515151;}
+table.tabla-tres input.campo_35 { width:35px; border:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px; padding:6px 0 5px 5px; color:#515151;}
+/**/
+table.tabla-cuatro {font-size:12px; color:#515151; margin:15px 0 35px; padding:0 0 40px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bg_tab4.gif) no-repeat left bottom;}
+table.tabla-cuatro td, table.tabla-cuatro th {padding:0 0 8px;}
+table.tabla-cuatro th.th-h2 {padding:10px 0 17px; font-size:14px; color:#606060;}
+/**/
+table.tabla-cinco {font-size:12px; color:#FFF;}
+table.tabla-cinco th {background:#233f5a; padding:10px 0; text-align:center;}
+table.tabla-cinco th span {font-size:48px; font-weight:normal;}
+
+/*tabs*/
+ul.tabs-uno {overflow:hidden; padding:0; margin:0 0 17px; border-bottom:1px solid #dcdcdc; border-left:1px solid #dcdcdc;}
+ul.tabs-uno li {float:left; border-top:1px solid #dddddd;}
+ul.tabs-uno li a {display:block; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bg_li.gif) no-repeat right top #f2f1f1; padding:20px; border-right:1px solid #f2f1f1; font-size:12px; color:#515151;}
+ul.tabs-uno li a:hover {background:#FFF; border-right:1px solid #dddddd; text-decoration:none;}
+ul.tabs-uno li.li-last a {background:#f2f1f1; border-right:1px solid #dddddd;}
+ul.tabs-uno li.li-last a:hover {background:#FFF; border-right:1px solid #dddddd;}
+ul.tabs-uno li a.active {background:#FFF; border-right:1px solid #dddddd;}
+
+/*cajas*/
+div.box-uno {}
+/**/
+div.box-dos {border:1px solid #b1bbce; overflow:hidden; margin:0 0 25px;}
+div.box-dos .box-auxi {margin:10px; overflow:hidden;}
+div.box-dos .close {width:30px; float:right;}
+div.box-dos .close a {display:block; width:30px; height:30px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/cerrar_of.png) no-repeat left top;}
+div.box-dos .close a:hover {background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/cerrar_on.png) no-repeat left top;}
+div.box-dos-int {background:#f5f5f8; margin:12px 20px 20px 0; padding:12px 0 5px; overflow:hidden;}
+div.margennormal{margin:12px 20px 0 0;}
+div.box-dos-int p {margin:0 0 0 10px;}
+div.box-dos div.box-dos-int .close {width:30px; margin:-25px 0 0 885px; clear:both; position:absolute;}
+div.box-dos div.box-dos-int .close-sd { margin:20px 0 0 885px;}
+div.box-dos div.box-dos-int .close_socio a {display:block; width:30px; height:30px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/cerrar_of.png) no-repeat left top; margin:0 0 0 15px}
+div.box-dos div.box-dos-int .close_socio a:hover {background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/cerrar_on.png) no-repeat left top;}
+div.box-dos div.box-dos-int .separa_socio{ padding:15px 0 0 0; border-top:1px solid #b1bbce; width:880px; margin:10px auto 0 auto;}
+
+/**/
+div.box-tres {background:#f5f5f8; width:350px; padding:10px 0 0; overflow:hidden; margin:0 0 30px;}
+div.box-tres p {margin:0 12px 10px; font-weight:bold;}
+div.box-tres p.titulo {border-bottom:1px solid #b1bbce; padding:0 0 15px;}
+div.box-tres table {margin:0 auto 12px; font-size:12px; color:#223f5a;}
+div.box-tres table th {padding:0 0 8px;}
+div.box-tres table select.campo-uno {width:118px; border:1px solid #d0d0d0; padding:10px 5px;}
+/**/
+div.item-otra {background:#9fbad3; overflow:hidden; width:150px; min-height:85px; float:left; margin:17px 40px 0 0; color:#223f5a; font-weight:bold; font-size:16px;}
+div.item-last {margin:17px 0 0;}
+div.item-otra span {color:#223f5a; display:block; margin:20px 14px; text-align:center;}
+div.item-otra .close {width:30px; margin:-17px 0 0 130px; clear:both; position:absolute;}
+div.item-otra .close a {display:block; width:36px; margin:0; height:36px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/mas_of.png) no-repeat left top;}
+div.item-otra .close a:hover {background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/mas_on.png) no-repeat left top;}
+/**/
+div.box-cuatro {background:#f5f5f8; width:228px; border:1px solid #bac3d4; padding:10px 0 0; overflow:hidden; margin:0 8px 30px 0;}
+div.box-cuatro p {margin:0 12px 10px; font-weight:bold;}
+div.box-cuatro p.titulo {min-height:32px; border-bottom:1px solid #b1bbce; padding:0 0 5px;}
+div.box-cuatro table.main {margin:0 auto 12px; font-size:12px; color:#223f5a;}
+div.box-cuatro table th {padding:0 0 8px;}
+div.box-cuatro table select.campo-uno {width:80px; border:1px solid #d0d0d0; padding:5px;}
+div.box-cuatro-last { margin:0 0 30px;}
+
+/*mapa del sitio*/
+div.box-mapa {width:785px; margin:4px 0 0 53px; overflow:hidden;}
+div.box-mapa ul.items-mapa {width:230px; padding:0; margin:0 0 35px;}
+div.box-mapa ul.items-mapa li {font-size:12px; color:#255988; margin:0 0 16px; text-transform:uppercase; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_bajo.png) no-repeat left top; padding:0 0 0 17px;}
+div.box-mapa ul.items-mapa li a {color:#255988;}
+div.box-mapa ul.items-mapa li li a{color:#4f80ab !important;}
+div.box-mapa ul.items-mapa li ul {margin:12px 0 0 0;}
+div.box-mapa ul.items-mapa li ul li {font-size:12px; color:#255988; text-transform:none; margin:0 0 8px; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bullet.png) no-repeat left 3px; padding:0 0 0 10px;}
+div.box-mapa ul.items-mapa li a:hover {text-decoration:underline;}
+
+div.box-mapa ul.items-mapa li.item-rot {background:#e7e6e6; font-size:14px; color:#263c75; font-weight:bold; padding:12px; margin:0 0 12px;}
+/**/
+div.box-mapa ul.mleft {float:left; margin-right:50px;}
+
+/*buscador*/
+div.box-buscar {width:930px; margin:4px 0 0 0;}
+
+input, textarea { color: #000; }
+.placeholder { color: #aaa; }
+
+
+/*** 13-10-2011 ***/
+
+/* SUCURSALES */
+.box_filtro_sucursales { margin:17px 0 58px;}
+.box_filtro_sucursales fieldset { margin:0 0 8px;}
+.box_filtro_sucursales fieldset.m120 { margin-right:120px;}
+.box_filtro_sucursales fieldset label { display:block; margin:0 0 8px; }
+.box_filtro_sucursales fieldset select { border:1px solid #d0d0d0; color: #676666; font-size: 13px; height:26px; width:228px; }
+	
+.box_sucursales {}
+.box_sucursales .col_450,
+.box_sucursales .col_225 { margin-right:12px;}
+.box_sucursales thead { color:#263c75; font-size:14px; text-align:left; text-transform:uppercase; }
+.box_sucursales td { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_tablas.jpg) left bottom repeat-x; height:50px; padding:0 0 0 18px;  position:relative; }
+.box_sucursales th { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_tablas.jpg) left bottom repeat-x #f5f5f5; height:44px; padding:0 0 0 18px; position:relative; text-align:left;}
+.box_sucursales .col_450 td { padding: 0 25px 0 18px;}
+.box_sucursales a.btn_como_llegar { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_como_llegar.jpg) left top no-repeat; color:#255988; font-size:12px; padding-left:12px; text-decoration:underline;} 
+.box_sucursales a.btn_como_llegar2 { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/btn_como_llegar.jpg) left 10px no-repeat; color:#255988; font-size:12px; padding: 10px 0 0 12px; text-decoration:underline;} 
+
+/***** traspaso ******/
+.traspaso { color:#515151;}
+.traspaso p {}
+.traspaso h1 { padding:0 0 4px 0;}
+.traspaso h3 { font-size:16px; color:#255988; line-height:18px; padding:0 0 7px 0;}
+.mod_ancho { border-top:solid 1px #c1c9d8; margin:16px 0 0 0; padding:26px 0 0 0;}
+.mod_ancho table.top { margin:5px 0 19px 0;}
+.mod_ancho table.top th { background:#e1e5ec; font-size:13px; color:#255988; font-weight:normal; border-right:solid 1px #fff; padding:12px 0 11px 0; border-bottom:solid 1px #fff;}
+.mod_ancho table.top th.primer { text-align:left; font-size:15px; font-weight:bold; padding:12px 0 11px 18px;}
+.mod_ancho table.top th.fin { border-right:none;}
+.mod_ancho table.top td { background:#f4f4f5; border-right:solid 1px #fff;}
+.mod_ancho table.top td.primer { background:#eae9e9; padding:0 0 0 18px;}
+.mod_ancho table.top td.fin { border-right:none;}
+.mod_ancho table.top td strong { font-size:16px;}
+
+.mod_ancho table.tabla_seguridad { margin:20px 0 0 0;}
+.mod_ancho table.tabla_seguridad td { height:28px;}
+.mod_ancho table.tabla_seguridad .caja { width:224px; border:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px; padding:6px 0 5px 5px; color:#515151;}
+.mod_ancho table.tabla_seguridad .caja_170 { width:170px; border:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px; padding:6px 0 5px 5px; color:#515151;}
+.mod_ancho table.tabla_seguridad .caja_35 { width:35px; border:solid 1px #d0d0d0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px; padding:6px 0 5px 5px; color:#515151;}
+.mod_ancho table.tabla_seguridad a { font-size:11px; color:#255988; font-weight:bold; text-decoration:underline;}
+.mod_ancho table.tabla_seguridad a.aceptar { background:#255988; padding:12px 40px 11px; color:#fff; font-size:16px; font-weight:bold; text-decoration:none;}
+.mod_ancho table.tabla_seguridad td.btn { height:55px; vertical-align:bottom;}
+
+.vertical_middle { vertical-align:middle; margin:0 10px 0 0;}
+
+.menu_traspaso { margin:0 0 20px 0; height:57px; border-bottom: solid 1px #dcdcdc;}
+.menu_traspaso ul { height:57px; border-left:solid 1px #dcdcdc; display:inline-block; border-right:solid 1px #dcdcdc;}
+.menu_traspaso ul li { float:left; height:56px; border-top:solid 1px #dcdcdc;  border-bottom:solid 1px #dcdcdc; line-height:12px;}
+.menu_traspaso ul li a { display:block; height:33px; background: url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_menu_traspaso.jpg) right 4px no-repeat #f2f1f1; padding:23px 20px 0 20px; color:#515151;}
+.menu_traspaso ul li a:hover, .menu_traspaso ul li a.activo { text-decoration:none; background:#FFF;}
+
+.mod_solicitud { font-size:12px; padding:0 0 23px 0; margin:0 0 30px 0; border-bottom:solid 1px #c1c9d8;}
+.mod_solicitud.fin { padding:0 0 30px 0; margin:0 0 30px 0; border-bottom:none;}
+.mod_solicitud.fin h4 { background:none; color:#223f5a; padding:0 0 15px 0; margin:0;} 
+.mod_solicitud h3 { padding:0 0 13px 0;}
+.mod_solicitud h4 { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_tablas.jpg) left top repeat-x; margin:8px 0 0 0; padding:8px 0; font-size:14px; color:#606060;}
+.mod_solicitud h4.no_borde { background:none;}
+.mod_solicitud table {}
+.mod_solicitud table td { line-height:19px;}
+
+.mod_solicitud .centrado{ padding:0 0 0 350px;}
+.mod_solicitud span.gris-large {font-size:18px; font-weight:bold;}
+.mod_solicitud input.btn-uno {background:#255988; font-size:16px; color:#FFF; font-weight:bold; padding:11px 30px; border:none; font-family:Arial; margin:0; cursor:pointer; float:left;}
+.mod_solicitud input.btn-dos {background:#255988; font-size:14px; color:#FFF; font-weight:bold; padding:8px 30px; border:none; font-family:Arial; cursor:pointer; margin:0 0 0 10px;}
+input.btn-tres {background:#255988; font-size:16px; color:#FFF; font-weight:bold; padding:11px 30px; border:none; font-family:Arial; margin:0; cursor:pointer;}
+.mod_solicitud a.btn-uno {background:#255988; font-size:16px; color:#FFF; font-weight:bold; padding:11px 30px; border:none; font-family:Arial; margin:50px 0 0;}
+.mod_solicitud a.btn-uno:hover {background:#999; text-decoration:none;}
+.mod_solicitud span.nota {color:#990101; font-size:11px;}
+.mod_solicitud a.prev {background:#ebebeb;  color:#6e6e6e; line-height:15px; font-size:11px; text-decoration:none; margin:0px 5px 0 0; display:block; padding:14px 20px 15px; float:left;}
+.mod_solicitud a.prev:hover {color:#255988;}
+
+table .letra { color:#223f5a; font-size:24px; line-height:24px; padding:3px 0; display:block;}
+
+/*** Simulador ***/
+.opciones { margin:20px 0 30px;}
+.opciones input.campo-uno {width:200px; border:1px solid #d0d0d0; padding:5px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+
+.opciones_ahorro { margin:0 0 30px;}
+.opciones_ahorro .campo-uno {width:120px; border:1px solid #d0d0d0; padding:5px 10px; color:#255988; font-size:12px; margin:0 0 8px; font-family:Arial;}
+
+
+
+/******** Login **********/
+.login { padding:20px 0 50px 0; height:242px;}
+.login .col { width:300px; height:242px; float:left; }
+.login .col .caja { height:230px; background:#f1f1f1; padding:10px 10px 0 18px; color:#fff; font-size:12px;width:285px;}
+.login .col .seg { text-align:center; color:#999999; font-size:11px; height:35px; line-height:35px;font-style: italic; margin: 5px 0 0 0;}
+table.seguridad-norton-table{float:left; margin:0;}
+table.seguridad-norton-table img{width:60px; float:left;}
+.seguridad-norton { color:#c70037; text-decoration:underline !important; font-size:10px !important;}
+.login .col .caja h1 {   color: #C70037;
+    font-size: 18px;
+    padding-bottom: 10px;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px 0 30px 0;
+    border-bottom: solid 1px #d1d1d1; }
+.login .col .caja td { color:#fff; font-size:12px; }
+.login .col .caja td.nom { width:32px; height:40px; padding-right:3px;}
+.login .col .caja td.inp { width:133px; height:40px; }
+.login .col .caja td.link { padding:6px 0 15px 0; font-size:11px; }
+.login .col .caja td.link a { color:#fff; padding:0 0 0 15px;background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/bullet2.gif) 2px 0 no-repeat; display:inline-block; }
+.login .col .caja td.inp input { width:155px; height:26px; border:1px solid #d0d0d0; background:#fff;  padding-left:8px;  }
+.login .col .caja td.inp ::-webkit-input-placeholder{font-style:italic;}
+.login .col .caja td.inp ::-moz-placeholder{font-style:italic;}
+.login .col .caja .ingresar { background:#c70037; width:187px; height:32px; color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:15px; cursor:pointer; line-height:32px; text-align:center; display:block; margin-left:50px;}
+.login .col .caja .ingresar[disabled="disabled"] { cursor: not-allowed !important; opacity:0.3; filter:alpha(opacity=30); /* IE */ }
+.login .col .caja .ingresar:hover {opacity:0.8;}
+.login .cont { width:612px; height:240px; float:right; background:#f7f7f7; padding:0 0 0 20px; font-size:13px;}
+.login .cont img { float:right; }
+.login .cont h2 {color: #666666;
+    font-size: 12px;
+    padding: 0 0 10px;
+    font-weight: normal;
+    margin: 22px 0 22px 0;
+    border-bottom: solid 1px #d1d1d1;
+    width: 250px;}
+.login .cont h3 { font-size:14px; font-weight:normal; color:#777777; text-transform:uppercase; margin:0 0 10px 0; }
+.login .cont ul { margin:0; }
+.login .cont ul li {background: url(../img/li.png) 0 3px no-repeat;
+    padding: 0 0 0 20px;
+    margin: 8px 0;
+}
+.login .cont .bot {width:220px;color:#666666; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer;display:block; font-style:italic; margin: 20px 0 0 0;
+}
+.login .cont .bot a{color: #c70037;text-decoration: underline }
+
+#top .volver { float:right; margin:39px 0 0 0;}
+#top .volver a { background:#4075a4; width:108px; height:24px; color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer; line-height:24px; text-align:center; display:block; }
+#top .volver a:hover { background:#8dacc8; text-decoration:none; }
+
+
+#bottom.corto { min-height:54px; height:auto !important; height:54px; padding:20px 0;}
+#bottom.corto .logo { margin:0; padding:0; width:233px; height:60px;}
+#bottom.corto .menu { float:left; margin:0;  padding:10px 25px 10px 0; background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/separa_btm.jpg) right top no-repeat; height:auto; width:520px; height:40px;}
+#bottom.corto .menu ul { float:right; width:150px; padding:0;}
+#bottom.corto .menu ul li { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/arrow_li_btm.gif) left 3px no-repeat; padding:0 0 0 13px; line-height:14px; font-size:11px;}
+#bottom.corto .menu ul li a { color:#255988;}
+#bottom.corto .phone { background:none; padding:14px 0 0 0; color:#647bad; width:142px; float:right;}
+#bottom.corto .phone span { background:url(https://www.afphabitat.cl/portalPrivadoWeb/template/001/images/phone_btm.gif) left top no-repeat; display:block; padding:0px 0 0 30px;}
+#bottom.corto .phone span strong { color:#265a89;}
+
+
+
+
+
+
+

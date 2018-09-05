@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	
+	<display-name>solDeudas AFP Habitat</display-name>
+	<description>Servicios Web del negocio</description>
+
+    <!-- .................................................................................. -->
+    <!-- Configuración de Contexto para Spring. Este Listener inicia Spring junto con la    -->
+    <!-- aplicación Web luego de ser desplegada                                             -->
+    <!-- .................................................................................. -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+	  <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>	
+
+    <!-- .................................................................................. -->
+    <!-- Archivos de configuración incluidos en forma general por Spring al momento de ser  -->
+    <!-- inicializado.                                                                      -->
+    <!-- .................................................................................. -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring-context/web-application-config.xml,
+			/WEB-INF/spring-context/web-module-config.xml
+		</param-value>
+	</context-param>
+	
+    <!-- .................................................................................. -->
+    <!-- Spring Dispatcher configurado como punto de entrada para la aplicación. Este       -->
+    <!-- servlet de Spring está configurado de modo tal que sea el primer componente de la  -->
+    <!-- aplicación que es visible por el usuario                                           -->
+    <!-- .................................................................................. -->
+	<servlet>
+		<servlet-name>entry-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring-context/dispatchers/entry-dispatcher-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+    <!-- .................................................................................. -->
+    <!-- Mapeo a la raiz de la aplicación.                                                  -->
+    <!-- .................................................................................. -->
+	<servlet-mapping>
+		<servlet-name>entry-dispatcher</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	
+    <!-- .................................................................................. -->
+    <!-- Ejb de la aplicación para uso Web.                                                 -->
+    <!-- .................................................................................. -->
+		
+	<ejb-local-ref>	
+		<ejb-ref-name>ejb/SolDeudasBean</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>
+		<local>cl.afphabitat.cuentas.solDeudas.ejb.SolDeudasLocal</local>	
+	</ejb-local-ref> 	
+
+    <!-- .................................................................................. -->
+    <!-- Establece la URL de "bienvenida" de la aplicación.                                 -->
+    <!-- .................................................................................. -->
+	<welcome-file-list>
+		<welcome-file>/</welcome-file>
+	</welcome-file-list>
+	
+    <!-- .................................................................................. -->
+    <!-- Páginas de control de errores de acceso                                            -->
+    <!-- .................................................................................. -->
+	<error-page>
+	  <error-code>403</error-code>
+	  <location>/public/error.htm?error=security</location>
+    </error-page>
+	<error-page>
+	  <error-code>404</error-code>
+	  <location>/public/error.htm?error=resource</location>
+    </error-page>    
+    <error-page>
+      <error-code>503</error-code>
+      <location>/public/error.htm?error=security</location>
+    </error-page>	
+	
+    <!-- ............................................................................................. -->
+    <!-- Dispatcher configurado con Web MVC, Webflow y JSP/JSTL/ajax vistas                            -->
+    <!-- ............................................................................................. -->
+	<servlet>
+		<servlet-name>workflows-flow-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring-context/dispatchers/workflows-flow-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+
+    <!-- ............................................................................................ -->
+    <!-- Mapeo al subdirectorio administrado por el dispatcher mlt-flow-dispatcher.    -->
+    <!-- ............................................................................................ -->
+	<servlet-mapping>
+		<servlet-name>workflows-flow-dispatcher</servlet-name>
+		<url-pattern>/workflows/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Serves static resource content from .jar files such as spring-js.jar -->
+	<servlet>
+	    <servlet-name>Resource Servlet</servlet-name>
+	    <servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
+	</servlet>
+
+	<!-- Map all /resources requests to the Resource Servlet for handling -->
+	<servlet-mapping>
+	    <servlet-name>Resource Servlet</servlet-name>
+	    <url-pattern>/resources/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Activa el character encoding -->
+	<filter>
+		<filter-name>CharacterEncoding</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- Atrapa los requerimientos MVC. Sustituye el trabajo del RequestProcessor -->
+	<filter>
+		<filter-name>requestProcessorMvc</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>requestProcessorMvc</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping>
+	
+	<!-- Atrapa los requerimientos WebFlows. Sustituye el trabajo del RequestProcessor -->
+	<filter>
+		<filter-name>requestProcessorWebFlows</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>requestProcessorWebFlows</filter-name>
+		<url-pattern>/workflows/*</url-pattern>
+	</filter-mapping>
+	
+
+    <!-- .................................................................................. -->
+    <!-- solDeudas de la Aplicacion                                                         -->
+    <!-- .................................................................................. -->
+    <security-constraint>
+        <display-name>Public Constraint</display-name>
+        <web-resource-collection>
+<!--             <web-resource-name>protected-htm</web-resource-name> -->
+			<web-resource-name>unprotected</web-resource-name>
+            <description>Objetos HTM NO protegidos de la aplicacion</description>
+            <url-pattern>*.htm</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+<!--         <auth-constraint> -->
+<!--             <role-name>clienteHabitat</role-name> -->
+<!--         </auth-constraint>  -->
+    </security-constraint>  
+
+    <security-constraint>
+        <display-name>Public Constraint</display-name>
+        <web-resource-collection>
+<!--             <web-resource-name>protected-do</web-resource-name> -->
+			<web-resource-name>unprotected</web-resource-name>
+            <description>Objetos NO protegidos de la aplicacion</description>
+            <url-pattern>*.do</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+<!--         <auth-constraint> -->
+<!--             <role-name>clienteHabitat</role-name> -->
+<!--         </auth-constraint>  -->
+    </security-constraint>  
+
+    <security-constraint>
+        <display-name>Public Constraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>unprotected</web-resource-name>
+            <description>Objetos NO protegidos de la aplicacion</description>
+            <url-pattern>/public/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+    </security-constraint>        
+ 	  
+	<login-config>
+	  <auth-method>FORM</auth-method>
+	  <form-login-config>
+	    <form-login-page>/login.htm</form-login-page>
+	    <form-error-page>/login.htm?error=login</form-error-page>
+	  </form-login-config>
+	</login-config>     
+	
+	<security-role>
+        <description>Acceso de los Clientes Habitat</description>
+        <role-name>clienteHabitat</role-name>
+    </security-role>  
+    <security-role>
+        <description>Acceso de los Clientes Habitat</description>
+        <role-name>G_Habitat_do2_ROL_SolDeudas_Consulta CERT</role-name>
+    </security-role>
+    <security-role>
+        <description>Acceso de los Clientes Habitat</description>
+        <role-name>G_Habitat_do2_ROL_SolDeudas_Consulta</role-name>
+    </security-role>   
+
+</web-app>
+

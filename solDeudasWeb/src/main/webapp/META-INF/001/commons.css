@@ -1,0 +1,46 @@
+/*
+ * Estilos para uso común y estructural (comportamiento)
+ * Para ser usado en el lokk&feel de los sitios Web de AFP Habitat
+ * 22/06/2012 [aituarte - schema ltda.]: Versión Inicial
+ */
+
+/* invisible_table: usada para estruturar layouts */
+.invisible_table {
+	vertical-align: top;
+	text-align: left;
+	border-width: 0px;
+	margin:	0;
+	padding: 0px;
+	spacing: 0px;
+	clear: both;
+	width: 100%;
+	background:#fff;	
+}
+
+.invisible_table td {
+	vertical-align: top;
+}
+
+/* ordered_table: usada para tablas que permiten orden de sus filas */
+table.ordered_table {
+}
+table.ordered_table thead tr th, table.ordered_table tfoot tr th {
+}
+table.ordered_table thead tr .header {
+	background-image: url(img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.ordered_table tbody td {
+}
+table.simple_table tbody tr.odd td {
+}
+table.ordered_table thead tr .headerSortUp {
+	background-image: url(img/asc.gif);
+}
+table.ordered_table thead tr .headerSortDown {
+	background-image: url(img/desc.gif);
+}
+table.ordered_table thead tr .headerSortDown, table.ordered_table thead tr .headerSortUp {
+}

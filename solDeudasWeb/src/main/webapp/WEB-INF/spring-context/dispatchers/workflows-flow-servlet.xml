@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/webflow-config
+        http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
+
+
+    <!-- Activa configuración por anotaciones -->
+    <context:annotation-config/>
+
+	<!-- Se define el package -->
+    <context:component-scan base-package="cl.afphabitat.cuentas.solDeudas.web.workflows"/>
+
+    <!-- Activa los controladores POJO con @Controllers - en este ejempo no lo usó-->
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+    
+    <!-- Establece los mapeos de URL a flujos (web flow) -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                /workflows/*.do=flowController
+            </value>
+        </property>
+        <property name="alwaysUseFullPath" value="true"/>
+    </bean>
+    
+    <!-- Activa las anotaciones en los métodos de objetos POJO con @Controllers -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    
+    <!-- Permite utilizar controladores "planos  - no lo ocupa-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    
+    <!-- Configuración de Spring Web Flow para este módulo -->
+    <bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowController">
+        <property name="flowExecutor" ref="flowExecutor"/>
+    </bean>
+    
+	<webflow:flow-executor id="flowExecutor" />
+    
+    <!-- Este es un repositorio de flujos válido para el dispatcher -->
+	<webflow:flow-registry id="flowRegistry"
+		flow-builder-services="flowBuilderServices" base-path="/WEB-INF/spring-context/workflows">
+		<webflow:flow-location-pattern value="/*.xml" />		
+	</webflow:flow-registry>
+	
+	<webflow:flow-builder-services id="flowBuilderServices"
+		view-factory-creator="viewFactoryCreator"/> 
+		
+    
+    <!-- El bean viewResolver está definido a nivel global, al importar el archivo "view-config.xml" -->
+    <bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <property name="viewResolvers">
+            <list>
+                <ref bean="viewResolver"/>
+                <!-- ref bean="tilesViewResolver" --> 
+                </list>
+        </property>
+    </bean>
+    
+	<!-- manejo exepciones no atrapadas a pagina jsp -->    
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+			<property name="defaultErrorView" value="/public/error" />
+	</bean>
+	
+	<!-- ccappelletti: multipart resolver para upload de ficheros -->
+	<bean id ="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>	
+	
+</beans>

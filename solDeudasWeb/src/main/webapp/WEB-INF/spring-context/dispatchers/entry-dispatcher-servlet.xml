@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- ********************************************************************************** -->
+    <!-- Configuración de Spring MVC                                                        -->
+    <!-- ********************************************************************************** -->
+	
+    <!-- .................................................................................. -->
+    <!-- Esto activa los "post-processors" para utilizar configuración con anotaciones Java -->
+    <!-- .................................................................................. -->
+    <context:annotation-config/>
+    
+    <!-- .................................................................................. -->
+    <!-- Establece un package que sera inspeccionado en busca de controladores              -->
+    <!-- Este dispatcher es genérico y solo se utiliza para la pantalla inicial             -->
+    <!-- .................................................................................. -->
+	<context:component-scan base-package="cl.afphabitat.cuentas.solDeudas.web.controllers"/>
+    
+    <!-- .................................................................................. -->
+    <!-- Esto activa los controladores POJO al usar la anotación @Controller                 -->
+    <!-- .................................................................................. -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+
+    <!-- .................................................................................. -->
+    <!-- Esto activa los métodos anotados en los controladores @Controller                   -->
+    <!-- .................................................................................. -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+	
+    <!-- .................................................................................. -->
+    <!-- Esto activa contoladores "planos"                                                  -->
+    <!-- .................................................................................. -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+    <!-- .................................................................................. -->
+    <!-- Manejo exepciones no atrapadas a pagina jsp (última linea de control de errores)   -->
+    <!-- .................................................................................. -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="/public/error" />
+	</bean>
+	
+</beans>

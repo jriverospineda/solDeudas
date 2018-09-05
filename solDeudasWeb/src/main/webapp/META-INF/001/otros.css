@@ -1,0 +1,80 @@
+.info_table table {
+	text-align: left;
+	border-width: 0px;
+	margin:	0;
+	padding: 5px;
+	spacing: 0px;
+	clear: both;
+	width: 100%;
+}
+
+.celda_number_full {
+	border: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	text-align: right;
+	width: 10%;
+}
+
+.info_table td {
+	border-left: 5px solid #FFF;
+	border-right: 5px solid #FFF;
+	font-size:12px;	
+	width: 25%;
+}			
+.info_table .label {
+	white-space: normal;
+	font-weight: bold;
+	font-size:12px;
+}
+
+
+.info_table_3 table {
+	text-align: left;
+	border-width: 0px;
+	margin:	0;
+	padding: 5px;
+	spacing: 0px;
+	clear: both;
+	width: 100%;
+}
+
+.info_table_3 td {
+	border-left: 5px solid #FFF;
+	border-right: 5px solid #FFF;
+	font-size:12px;	
+	width: 17%;
+}			
+.info_table_3 .label {
+	white-space: normal;
+	font-weight: bold;
+	font-size:12px;
+}
+
+
+
+
+
+.grid_table table {
+	text-align: left;
+	border-collapse: collapse; 
+	border: 1px solid #C0C0C0;
+	margin:	0;
+	clear: both;
+	width: 100%;
+	font-size:11px;
+}
+
+.grid_table td {
+	border: 1px solid #C0C0C0;
+	vertical-align: middle;
+}
+			
+.grid_table .label {
+	white-space: normal;
+	font-weight: bold;
+}
+
+
+#contenidos { width: 100%; }
+

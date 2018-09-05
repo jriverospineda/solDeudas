@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Configuración de Vistas -->
+	<!-- Configuracion con JSP/JSTL + Tiles2 mediante Taglib -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+		<property name="exposeContextBeansAsAttributes" value="true" />
+	</bean>
+
+	<!-- Agregado para poder desplegar fragmentos  
+	     http://static.springsource.org/spring-webflow/docs/2.0.x/reference/htmlsingle/spring-webflow-reference.html#spring-js-ajax
+    -->	
+	<bean id="tilesViewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
+	    <property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTilesView"/>
+	</bean>
+	
+	<!-- 
+		Configuración de Mensajes de Internacionalización; estos son obtenidos desde el
+		classpath buscando archivos que partan con el nombre "i18n". Por ejemplo un
+		archivo válido para ser buscado es "i18n_es_CL.properties", en el caso que el
+		usuario tenga establecido como idioma y locación Español y Chile. 
+	-->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="i18n" />
+	</bean>
+</beans>

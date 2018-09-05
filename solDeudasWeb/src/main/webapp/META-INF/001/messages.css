@@ -1,0 +1,99 @@
+/*
+ * Estilos para el manejo de despliegues de error y alertas
+ * Para ser usado en el lokk&feel de los sitios Web de AFP Habitat
+ * 22/06/2012 [aituarte - schema ltda.]: Versión Inicial
+ */
+ 
+.error_zone {
+	width:550px;
+	text-align: left;
+	font-size: 11px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border:1px solid #030108;
+	background-color:#FFA07A;
+	-webkit-box-shadow: #4A4A4A 2px 2px 2px;
+	-moz-box-shadow: #4A4A4A 2px 2px 2px;
+	box-shadow: #4A4A4A 2px 2px 2px;
+	padding-right: 15px;
+	padding-left: 75px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 5px; 
+	margin-bottom: 5px;	
+	color: #000000;
+	font-style: normal;
+	background-image: url(img/icono_error.png);
+	background-repeat: no-repeat;
+	background-position: 15px center;	
+}
+
+.message_zone {
+	width:550px;
+	text-align: left;
+	font-size: 11px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border:1px solid #030108;
+	background-color:#E2FCDF;
+	-webkit-box-shadow: #4A4A4A 2px 2px 2px;
+	-moz-box-shadow: #4A4A4A 2px 2px 2px;
+	box-shadow: #4A4A4A 2px 2px 2px;
+	padding-right: 15px;
+	padding-left: 75px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 5px; 
+	margin-bottom: 5px;	
+	color: #000000;
+	font-style: normal;
+	background-image: url(img/icono_mensaje.png);
+	background-repeat: no-repeat;
+	background-position: 15px center;	
+}
+
+.alert_zone {
+	font-size: 11px;
+	text-align: left;
+	width:550px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border:1px solid #030108;
+	background-color:#FFFFE5;
+	-webkit-box-shadow: #4A4A4A 2px 2px 2px;
+	-moz-box-shadow: #4A4A4A 2px 2px 2px;
+	box-shadow: #4A4A4A 2px 2px 2px;
+	padding-right: 15px;
+	padding-left: 75px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 5px; 
+	margin-bottom: 5px;	
+	color: #000000;
+	font-style: normal;
+	background-image: url(img/icono_alerta.png);
+	background-repeat: no-repeat;
+	background-position: 15px center;	
+}
+
+.cuadro_zone {
+	width:550px;
+	text-align: left;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	border:1px solid #030108;
+	background-color:#FFFCFD;
+	-webkit-box-shadow: #4A4A4A 2px 2px 2px;
+	-moz-box-shadow: #4A4A4A 2px 2px 2px;
+	box-shadow: #4A4A4A 2px 2px 2px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 10px;	
+	padding-bottom: 10px;
+	margin-top: 5px; 
+	margin-bottom: 15px;
+}
