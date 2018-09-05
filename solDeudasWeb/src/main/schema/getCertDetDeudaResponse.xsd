@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://afphabitat.cl/soap/certificado" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cer="http://afphabitat.cl/soap/certificado">
+<xsd:element name="idEjecucion" type="xsd:decimal"></xsd:element>
+<xsd:element name="fechaRegistro" type="xsd:dateTime"></xsd:element>
+<xsd:element name="correlativo" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idDeuda" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idDetalleDeuda" type="xsd:decimal"></xsd:element>  
+<xsd:element name="montoRentaImponible" type="xsd:decimal"></xsd:element>
+<xsd:element name="idMaestroPersonas" type="xsd:decimal"></xsd:element>  
+<xsd:element name="rut" type="xsd:decimal"></xsd:element>  
+<xsd:element name="dv" type="xsd:string"></xsd:element>  
+<xsd:element name="primerNombre" type="xsd:string"></xsd:element>  
+<xsd:element name="segundoNombre" type="xsd:string"></xsd:element>  
+<xsd:element name="apellidoPaterno" type="xsd:string"></xsd:element>
+<xsd:element name="apellidoMaterno" type="xsd:string"></xsd:element>
+<xsd:element name="origenDeuda" type="xsd:string"></xsd:element>
+<xsd:element name="idPodructoCCICO" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idPodructoCCICV" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idPodructoCCIDC" type="xsd:decimal"></xsd:element>
+<xsd:element name="idPodructoCAV" type="xsd:decimal"></xsd:element>
+<xsd:element name="idPodructoAPVC" type="xsd:decimal"></xsd:element>
+<xsd:element name="idPodructoCAI" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idPodructoCCIAV" type="xsd:decimal"></xsd:element>  
+<xsd:element name="cotizacionTrabajoPesado" type="xsd:decimal"></xsd:element>
+<xsd:element name="seguro" type="xsd:decimal"></xsd:element>
+<xsd:element name="total" type="xsd:decimal"></xsd:element>
+<xsd:element name="codigoRespuesta" type="xsd:int"></xsd:element>
+<xsd:element name="descripcionRespuesta" type="xsd:string"></xsd:element>
+  <xsd:element name="getCertDetDeudaResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+          <xsd:element name="informacionCertificado">
+              <xsd:complexType>
+			      <xsd:sequence>
+			      	<xsd:element name="certificado" minOccurs="0" maxOccurs="unbounded">
+                    	<xsd:complexType>
+               				<xsd:sequence>
+			        			<xsd:element ref="cer:idEjecucion"/>
+								<xsd:element ref="cer:fechaRegistro"/>
+								<xsd:element ref="cer:correlativo"/>  
+								<xsd:element ref="cer:idDeuda"/>  
+								<xsd:element ref="cer:idDetalleDeuda"/>  
+								<xsd:element ref="cer:montoRentaImponible"/>
+								<xsd:element ref="cer:idMaestroPersonas"/>  
+								<xsd:element ref="cer:rut"/>  
+								<xsd:element ref="cer:dv"/>
+								<xsd:element ref="cer:apellidoPaterno"/> 
+								<xsd:element ref="cer:apellidoMaterno"/> 								
+								<xsd:element ref="cer:primerNombre"/>
+								<xsd:element ref="cer:segundoNombre"/>
+								<xsd:element ref="cer:origenDeuda"/> 
+								<xsd:element ref="cer:idPodructoCCICO"/> 	
+								<xsd:element ref="cer:idPodructoCCICV"/> 
+								<xsd:element ref="cer:idPodructoCCIDC"/> 
+								<xsd:element ref="cer:idPodructoCAV"/> 
+								<xsd:element ref="cer:idPodructoAPVC"/>
+								<xsd:element ref="cer:idPodructoCAI"/> 
+								<xsd:element ref="cer:idPodructoCCIAV"/> 
+								<xsd:element ref="cer:cotizacionTrabajoPesado"/> 
+								<xsd:element ref="cer:seguro"/> 
+								<xsd:element ref="cer:total"/>	
+							</xsd:sequence>
+			  			</xsd:complexType>
+		  			</xsd:element>																								 																			
+			      </xsd:sequence>
+			  </xsd:complexType>
+		  </xsd:element>
+ 		  <xsd:element name="condicion">
+              <xsd:complexType>
+			      <xsd:sequence>
+			        <xsd:element ref="cer:codigoRespuesta"/>
+			        <xsd:element ref="cer:descripcionRespuesta"/>
+			      </xsd:sequence>
+			  </xsd:complexType> 		  
+		  </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://afphabitat.cl/soap/certificado" xmlns:cer="http://afphabitat.cl/soap/certificado">
+  <xsd:element name="codigoUsuario" type="xsd:string"></xsd:element>
+  <xsd:element name="rut" type="xsd:decimal"></xsd:element>
+  <xsd:element name="fechaInicio" type="xsd:string"></xsd:element>
+  <xsd:element name="fechaTermino" type="xsd:string"></xsd:element>  
+  <xsd:element name="getCertDicomEmpleadorRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="cer:codigoUsuario"/>
+        <xsd:element ref="cer:rut"/>
+        <xsd:element ref="cer:fechaInicio"/>
+        <xsd:element ref="cer:fechaTermino"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

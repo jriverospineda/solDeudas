@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://afphabitat.cl/soap/empleador" xmlns:emp="http://afphabitat.cl/soap/empleador">
+  <xsd:element name="rut" type="xsd:decimal">
+  </xsd:element>
+  <xsd:element name="dv" type="xsd:string">
+  </xsd:element>
+  <xsd:element name="getEmpleadorRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="emp:rut"/>
+        <xsd:element ref="emp:dv"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://afphabitat.cl/soap/solicitud" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sol="http://afphabitat.cl/soap/solicitud">
+<xsd:element name="folioSolicitud" type="xsd:decimal"></xsd:element>
+<xsd:element name="fechaSolicitud" type="xsd:dateTime"></xsd:element>
+<xsd:element name="rutEmpleador" type="xsd:decimal"></xsd:element> 
+<xsd:element name="dvEmpleador" type="xsd:string"></xsd:element>
+<xsd:element name="razonSocial" type="xsd:string"></xsd:element>    
+<xsd:element name="rutAfiliado" type="xsd:decimal"></xsd:element> 
+<xsd:element name="dvAfiliado" type="xsd:string"></xsd:element>  
+<xsd:element name="primerNombre" type="xsd:string"></xsd:element>  
+<xsd:element name="segundoNombre" type="xsd:string"></xsd:element>  
+<xsd:element name="apellidoPaterno" type="xsd:string"></xsd:element>
+<xsd:element name="apellidoMaterno" type="xsd:string"></xsd:element> 
+<xsd:element name="fechaInicial" type="xsd:dateTime"></xsd:element>
+<xsd:element name="fechaFinal" type="xsd:dateTime"></xsd:element>
+<xsd:element name="estado" type="xsd:string"></xsd:element> 
+<xsd:element name="tipoSolicitud" type="xsd:string"></xsd:element> 
+<xsd:element name="codigoRespuesta" type="xsd:int"></xsd:element>
+<xsd:element name="descripcionRespuesta" type="xsd:string"></xsd:element>
+  <xsd:element name="getSolicitudResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+          <xsd:element name="informacionSolicitud">
+              <xsd:complexType>
+			      <xsd:sequence>
+			      	<xsd:element name="solicitud" minOccurs="0" maxOccurs="unbounded">
+                    	<xsd:complexType>
+               				<xsd:sequence>
+						        <xsd:element ref="sol:folioSolicitud"/>
+								<xsd:element ref="sol:fechaSolicitud"/>
+								<xsd:element ref="sol:rutEmpleador"/> 
+								<xsd:element ref="sol:dvEmpleador"/>   
+								<xsd:element ref="sol:razonSocial"/>  
+								<xsd:element ref="sol:rutAfiliado"/> 
+								<xsd:element ref="sol:dvAfiliado"/> 
+								<xsd:element ref="sol:apellidoPaterno"/> 
+								<xsd:element ref="sol:apellidoMaterno"/> 								
+								<xsd:element ref="sol:primerNombre"/>
+								<xsd:element ref="sol:segundoNombre"/>								
+								<xsd:element ref="sol:fechaInicial"/>  
+								<xsd:element ref="sol:fechaFinal"/>  
+								<xsd:element ref="sol:estado"/>
+								<xsd:element ref="sol:tipoSolicitud"/>
+							</xsd:sequence>
+			  			</xsd:complexType>
+		  			</xsd:element>									
+			      </xsd:sequence>
+			  </xsd:complexType>
+		  </xsd:element>
+ 		  <xsd:element name="condicion">
+              <xsd:complexType>
+			      <xsd:sequence>
+			        <xsd:element ref="sol:codigoRespuesta"/>
+			        <xsd:element ref="sol:descripcionRespuesta"/>
+			      </xsd:sequence>
+			  </xsd:complexType> 		  
+		  </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

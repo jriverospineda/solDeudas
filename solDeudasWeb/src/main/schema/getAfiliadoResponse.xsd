@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://afphabitat.cl/soap/afiliado" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:afi="http://afphabitat.cl/soap/afiliado">
+<xsd:element name="idMaePersona" type="xsd:decimal"></xsd:element>
+<xsd:element name="idTipoTrabajador" type="xsd:decimal"></xsd:element>
+<xsd:element name="idClaseCotizante" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idCodActividadEconomica" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idMedioEnvio" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idTipoPersona" type="xsd:decimal"></xsd:element>
+<xsd:element name="rutMaePersona" type="xsd:decimal"></xsd:element>  
+<xsd:element name="codPersona" type="xsd:string"></xsd:element>  
+<xsd:element name="dvMaePersona" type="xsd:string"></xsd:element>  
+<xsd:element name="apellidoPaterno" type="xsd:string"></xsd:element>  
+<xsd:element name="apellidoMaterno" type="xsd:string"></xsd:element>  
+<xsd:element name="nombrePrimer" type="xsd:string"></xsd:element>
+<xsd:element name="nombreSegundo" type="xsd:string"></xsd:element>  
+<xsd:element name="razonSocial" type="xsd:string"></xsd:element>
+<xsd:element name="codSexo" type="xsd:string"></xsd:element>  
+<xsd:element name="fechaNacimiento" type="xsd:dateTime"></xsd:element>
+<xsd:element name="lugarNacimiento" type="xsd:string"></xsd:element>  
+<xsd:element name="fechaAfiliacion" type="xsd:dateTime"></xsd:element>
+<xsd:element name="fechaIncorporacion" type="xsd:dateTime"></xsd:element>    
+<xsd:element name="email" type="xsd:string"></xsd:element>  
+<xsd:element name="sistemaSalud" type="xsd:string"></xsd:element>  
+<xsd:element name="regimenPrevisional" type="xsd:string"></xsd:element>
+<xsd:element name="codControl" type="xsd:string"></xsd:element>  
+<xsd:element name="mtoRentaImponible" type="xsd:decimal"></xsd:element>
+<xsd:element name="fechaVerificacion" type="xsd:dateTime"></xsd:element>  
+<xsd:element name="audCreadoPor" type="xsd:string"></xsd:element>
+<xsd:element name="audFechaCreacion" type="xsd:dateTime"></xsd:element>  
+<xsd:element name="audModificadoPor" type="xsd:string"></xsd:element>  
+<xsd:element name="audFechaModificacion" type="xsd:dateTime"></xsd:element>  
+<xsd:element name="idTipoNivelEstudio" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idTipoEstadoCivil" type="xsd:decimal"></xsd:element>   
+<xsd:element name="fechaFallecimiento" type="xsd:dateTime"></xsd:element>  
+<xsd:element name="idEntidadMulti" type="xsd:decimal"></xsd:element>  
+<xsd:element name="indCartolaDet" type="xsd:decimal"></xsd:element>
+<xsd:element name="codVendedor" type="xsd:string"></xsd:element>
+<xsd:element name="rutVendedor" type="xsd:decimal"></xsd:element>
+<xsd:element name="dvVendedor" type="xsd:string"></xsd:element>
+<xsd:element name="nombreVendedor" type="xsd:string"></xsd:element>
+<xsd:element name="indCarpeta" type="xsd:decimal"></xsd:element>
+<xsd:element name="indEnvioRc" type="xsd:decimal"></xsd:element>  
+<xsd:element name="idEntidadCarpeta" type="xsd:decimal"></xsd:element>
+<xsd:element name="fechaSuscripcionPension" type="xsd:dateTime"></xsd:element>    
+<xsd:element name="pafe" type="xsd:decimal"></xsd:element>
+<xsd:element name="idTipoModPension" type="xsd:decimal"></xsd:element>
+<xsd:element name="rentaLiquida" type="xsd:decimal"></xsd:element> 
+<xsd:element name="desActividad" type="xsd:string"></xsd:element>    
+<xsd:element name="idTipoCargoPersona" type="xsd:decimal"></xsd:element>
+<xsd:element name="indTipoTributante" type="xsd:decimal"></xsd:element>
+<xsd:element name="idTipoSegmentacion" type="xsd:decimal"></xsd:element>
+<xsd:element name="idTipoCausalFallecido" type="xsd:decimal"></xsd:element>
+<xsd:element name="fechaInicioSTJ" type="xsd:dateTime"></xsd:element>  
+<xsd:element name="codigoRespuesta" type="xsd:int"></xsd:element>
+<xsd:element name="descripcionRespuesta" type="xsd:string"></xsd:element>
+  <xsd:element name="getAfiliadoResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+          <xsd:element name="informacionAfiliado">
+              <xsd:complexType>
+			      <xsd:sequence>
+			        <xsd:element ref="afi:idMaePersona"/>
+					<xsd:element ref="afi:idTipoTrabajador"/>
+					<xsd:element ref="afi:idClaseCotizante"/>  
+					<xsd:element ref="afi:idCodActividadEconomica"/>  
+					<xsd:element ref="afi:idMedioEnvio"/>  
+					<xsd:element ref="afi:idTipoPersona"/>
+					<xsd:element ref="afi:rutMaePersona"/>  
+					<xsd:element ref="afi:codPersona"/>  
+					<xsd:element ref="afi:dvMaePersona"/>
+					<xsd:element ref="afi:apellidoPaterno"/>
+					<xsd:element ref="afi:apellidoMaterno"/>
+					<xsd:element ref="afi:nombrePrimer"/>
+					<xsd:element ref="afi:nombreSegundo"/>
+					<xsd:element ref="afi:razonSocial"/>
+					<xsd:element ref="afi:codSexo"/>
+					<xsd:element ref="afi:fechaNacimiento"/>
+					<xsd:element ref="afi:lugarNacimiento"/>
+					<xsd:element ref="afi:fechaAfiliacion"/>
+					<xsd:element ref="afi:fechaIncorporacion"/>    
+					<xsd:element ref="afi:email"/>
+					<xsd:element ref="afi:sistemaSalud"/>
+					<xsd:element ref="afi:regimenPrevisional"/>
+					<xsd:element ref="afi:codControl"/>
+					<xsd:element ref="afi:mtoRentaImponible"/>
+					<xsd:element ref="afi:fechaVerificacion"/>  
+					<xsd:element ref="afi:audCreadoPor"/>
+					<xsd:element ref="afi:audFechaCreacion"/>  
+					<xsd:element ref="afi:audModificadoPor"/>
+					<xsd:element ref="afi:audFechaModificacion"/>  
+					<xsd:element ref="afi:idTipoNivelEstudio"/>  
+					<xsd:element ref="afi:idTipoEstadoCivil"/>   
+					<xsd:element ref="afi:fechaFallecimiento"/>  
+					<xsd:element ref="afi:idEntidadMulti"/>  
+					<xsd:element ref="afi:indCartolaDet"/>
+					<xsd:element ref="afi:codVendedor"/>
+					<xsd:element ref="afi:rutVendedor"/>
+					<xsd:element ref="afi:dvVendedor"/>
+					<xsd:element ref="afi:nombreVendedor"/>
+					<xsd:element ref="afi:indCarpeta"/>
+					<xsd:element ref="afi:indEnvioRc"/>  
+					<xsd:element ref="afi:idEntidadCarpeta"/>
+					<xsd:element ref="afi:fechaSuscripcionPension"/>    
+					<xsd:element ref="afi:pafe"/>
+					<xsd:element ref="afi:idTipoModPension"/>
+					<xsd:element ref="afi:rentaLiquida"/> 
+					<xsd:element ref="afi:desActividad"/>  
+					<xsd:element ref="afi:idTipoCargoPersona"/>
+					<xsd:element ref="afi:indTipoTributante"/>
+					<xsd:element ref="afi:idTipoSegmentacion"/>
+					<xsd:element ref="afi:idTipoCausalFallecido"/>
+					<xsd:element ref="afi:fechaInicioSTJ"/>  
+					<xsd:element ref="afi:codigoRespuesta"/>
+					<xsd:element ref="afi:descripcionRespuesta"/>
+			      </xsd:sequence>
+			  </xsd:complexType>
+		  </xsd:element>
+ 		  <xsd:element name="condicion">
+              <xsd:complexType>
+			      <xsd:sequence>
+			        <xsd:element ref="afi:codigoRespuesta"/>
+			        <xsd:element ref="afi:descripcionRespuesta"/>
+			      </xsd:sequence>
+			  </xsd:complexType> 		  
+		  </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

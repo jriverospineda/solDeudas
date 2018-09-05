@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://afphabitat.cl/soap/exencion" xmlns:exe="http://afphabitat.cl/soap/exencion">
+  <xsd:element name="rutRepresentante" type="xsd:decimal">
+  </xsd:element> 
+  <xsd:element name="dvRepresentante" type="xsd:string">
+  </xsd:element>      
+  <xsd:element name="rutAfiliado" type="xsd:decimal">
+  </xsd:element>
+  <xsd:element name="dvAfiliado" type="xsd:string">
+  </xsd:element>
+  <xsd:element name="idSucursal" type="xsd:int">
+  </xsd:element>  
+  <xsd:element name="rutEmpleado" type="xsd:decimal">
+  </xsd:element>
+  <xsd:element name="dvEmpleado" type="xsd:string">
+  </xsd:element> 
+  <xsd:element name="idTipoCanal" type="xsd:int">
+  </xsd:element>     
+  <xsd:element name="setSolicitudExencionRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="exe:rutRepresentante"/>
+        <xsd:element ref="exe:dvRepresentante"/>  
+        <xsd:element ref="exe:rutAfiliado"/>
+        <xsd:element ref="exe:dvAfiliado"/>
+		<xsd:element ref="exe:idSucursal"/> 
+        <xsd:element ref="exe:rutEmpleado"/>
+        <xsd:element ref="exe:dvEmpleado"/>
+		<xsd:element ref="exe:idTipoCanal"/> 				
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

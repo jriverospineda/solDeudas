@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://afphabitat.cl/soap/solicitud" xmlns:sol="http://afphabitat.cl/soap/solicitud">
+  <xsd:element name="rutAfiliadoIn" type="xsd:decimal"></xsd:element> 
+  <xsd:element name="dvAfiliadoIn" type="xsd:string"></xsd:element>   
+  <xsd:element name="fechaInicialIn" type="xsd:dateTime"></xsd:element>
+  <xsd:element name="fechaFinalIn" type="xsd:dateTime"></xsd:element>   
+  <xsd:element name="idTipoSolicitud" type="xsd:string"></xsd:element>    
+  <xsd:element name="folio" type="xsd:decimal"></xsd:element>                           
+  <xsd:element name="getSolicitudRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="sol:rutAfiliadoIn"/>  
+        <xsd:element ref="sol:dvAfiliadoIn"/>         
+        <xsd:element ref="sol:fechaInicialIn"/>  
+        <xsd:element ref="sol:fechaFinalIn"/>         
+        <xsd:element ref="sol:idTipoSolicitud"/>   
+        <xsd:element ref="sol:folio"/>                                                    
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

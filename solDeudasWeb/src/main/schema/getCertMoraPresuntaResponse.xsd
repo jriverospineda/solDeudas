@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://afphabitat.cl/soap/certificado" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cer="http://afphabitat.cl/soap/certificado">
+<xsd:element name="idEjecucion" type="xsd:decimal"></xsd:element>
+<xsd:element name="fechaRegistro" type="xsd:dateTime"></xsd:element>
+<xsd:element name="periodoCotizacion" type="xsd:dateTime"></xsd:element>  
+<xsd:element name="origenMora" type="xsd:string"></xsd:element>  
+<xsd:element name="rutAfiliado" type="xsd:decimal"></xsd:element>  
+<xsd:element name="dvAfiliado" type="xsd:string"></xsd:element>
+<xsd:element name="primerNombre" type="xsd:string"></xsd:element>  
+<xsd:element name="segundoNombre" type="xsd:string"></xsd:element>  
+<xsd:element name="apellidoPaterno" type="xsd:string"></xsd:element>  
+<xsd:element name="apellidoMaterno" type="xsd:string"></xsd:element>  
+<xsd:element name="montoRemuneracionImponible" type="xsd:decimal"></xsd:element>  
+<xsd:element name="tipoConcepto" type="xsd:string"></xsd:element>
+<xsd:element name="montoConcepto" type="xsd:decimal"></xsd:element>
+<xsd:element name="codigoRespuesta" type="xsd:int"></xsd:element>
+<xsd:element name="descripcionRespuesta" type="xsd:string"></xsd:element>
+  <xsd:element name="getCertMoraPresuntaResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+          <xsd:element name="informacionCertificado">
+              <xsd:complexType>
+			      <xsd:sequence>
+			      	<xsd:element name="certificado" minOccurs="0" maxOccurs="unbounded">
+                    	<xsd:complexType>
+               				<xsd:sequence>
+						        <xsd:element ref="cer:idEjecucion"/>
+								<xsd:element ref="cer:fechaRegistro"/>
+								<xsd:element ref="cer:periodoCotizacion"/>  
+								<xsd:element ref="cer:origenMora"/>   
+								<xsd:element ref="cer:rutAfiliado"/>
+								<xsd:element ref="cer:dvAfiliado"/>  
+								<xsd:element ref="cer:primerNombre"/>  
+								<xsd:element ref="cer:segundoNombre"/>
+								<xsd:element ref="cer:apellidoPaterno"/>
+								<xsd:element ref="cer:apellidoMaterno"/>
+								<xsd:element ref="cer:montoRemuneracionImponible"/> 
+								<xsd:element ref="cer:tipoConcepto"/> 
+								<xsd:element ref="cer:montoConcepto"/> 	
+							</xsd:sequence>
+			  			</xsd:complexType>
+		  			</xsd:element>																										
+			      </xsd:sequence>
+			  </xsd:complexType>
+		  </xsd:element>
+ 		  <xsd:element name="condicion">
+              <xsd:complexType>
+			      <xsd:sequence>
+			        <xsd:element ref="cer:codigoRespuesta"/>
+			        <xsd:element ref="cer:descripcionRespuesta"/>
+			      </xsd:sequence>
+			  </xsd:complexType> 		  
+		  </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

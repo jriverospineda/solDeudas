@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://afphabitat.cl/soap/certificado" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cer="http://afphabitat.cl/soap/certificado">
+<xsd:element name="idEjecucion" type="xsd:decimal"></xsd:element>
+<xsd:element name="fechaRegistro" type="xsd:dateTime"></xsd:element>
+<xsd:element name="rutEmpleador" type="xsd:decimal"></xsd:element> 
+<xsd:element name="dvEmpleador" type="xsd:string"></xsd:element>   
+<xsd:element name="origen" type="xsd:string"></xsd:element>  
+<xsd:element name="periodoCotizacion" type="xsd:string"></xsd:element>  
+<xsd:element name="montoOriginalDeuda" type="xsd:decimal"></xsd:element>
+<xsd:element name="saldoNominal" type="xsd:decimal"></xsd:element>  
+<xsd:element name="reajuste" type="xsd:decimal"></xsd:element>  
+<xsd:element name="intereses" type="xsd:decimal"></xsd:element>  
+<xsd:element name="recargoAFP" type="xsd:decimal"></xsd:element>  
+<xsd:element name="totalFondo" type="xsd:decimal"></xsd:element>  
+<xsd:element name="totalAPagar" type="xsd:decimal"></xsd:element>
+<xsd:element name="codigoRespuesta" type="xsd:int"></xsd:element>
+<xsd:element name="descripcionRespuesta" type="xsd:string"></xsd:element>
+  <xsd:element name="getCertDicomEmpleadorResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+          <xsd:element name="informacionCertificado">
+              <xsd:complexType>
+			      <xsd:sequence>
+			      	<xsd:element name="certificado" minOccurs="0" maxOccurs="unbounded">
+                    	<xsd:complexType>
+               				<xsd:sequence>
+						        <xsd:element ref="cer:idEjecucion"/>
+								<xsd:element ref="cer:fechaRegistro"/>
+								<xsd:element ref="cer:rutEmpleador"/> 
+								<xsd:element ref="cer:dvEmpleador"/>   
+								<xsd:element ref="cer:origen"/>  
+								<xsd:element ref="cer:periodoCotizacion"/>  
+								<xsd:element ref="cer:montoOriginalDeuda"/>
+								<xsd:element ref="cer:saldoNominal"/>  
+								<xsd:element ref="cer:reajuste"/>  
+								<xsd:element ref="cer:intereses"/>
+								<xsd:element ref="cer:recargoAFP"/>
+								<xsd:element ref="cer:totalFondo"/>
+								<xsd:element ref="cer:totalAPagar"/> 
+							</xsd:sequence>
+			  			</xsd:complexType>
+		  			</xsd:element>									
+			      </xsd:sequence>
+			  </xsd:complexType>
+		  </xsd:element>
+ 		  <xsd:element name="condicion">
+              <xsd:complexType>
+			      <xsd:sequence>
+			        <xsd:element ref="cer:codigoRespuesta"/>
+			        <xsd:element ref="cer:descripcionRespuesta"/>
+			      </xsd:sequence>
+			  </xsd:complexType> 		  
+		  </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

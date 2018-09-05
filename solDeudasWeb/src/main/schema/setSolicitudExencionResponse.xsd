@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://afphabitat.cl/soap/exencion" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:exe="http://afphabitat.cl/soap/exencion">
+<xsd:element name="codigoRespuesta" type="xsd:int"></xsd:element>
+<xsd:element name="descripcionRespuesta" type="xsd:string"></xsd:element>
+  <xsd:element name="setSolicitudExencionResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+ 		  <xsd:element name="condicion">
+		    <xsd:complexType>
+		      <xsd:sequence>
+			        <xsd:element ref="exe:codigoRespuesta"/>
+			        <xsd:element ref="exe:descripcionRespuesta"/>
+		      </xsd:sequence>
+		    </xsd:complexType>
+		  </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
