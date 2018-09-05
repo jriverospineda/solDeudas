@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="cl.afphabitat.mybatis.mapper.rol">
+
+    
+            <resultMap id="rolMap" type="cl.afphabitat.ws.core.model.Rol" >
+                    <id column="ROL_ID" property="id"/>
+                    <result column="ROL_NAME" property="name" jdbcType="VARCHAR" />
+            </resultMap>
+    
+            <select id="selectAllRols" resultMap="rolMap">
+                SELECT ROL_ID, ROL_NAME FROM ROL        
+            </select>
+            
+             <select id="getRolById" resultMap="rolMap"  parameterType="cl.afphabitat.ws.core.model.Rol" >
+               SELECT ROL_ID, ROL_NAME, ROL_LASTNAME, ROL_RUT FROM ROL
+           WHERE ROL_ID = #{id}
+            </select>
+
+
+            
+            <insert id="insertNewRol"  parameterType="cl.afphabitat.ws.core.model.Rol">
+                 INSERT INTO ROL 
+                 (ROL_ID, ROL_NAME) 
+                 VALUES (#{rolId}, #{rolName})
+            </insert>
+            
+            
+            <delete id="deleteAllRols">
+                 DELETE FROM ROL
+            </delete>
+            
+            
+             <delete id="deleteRolById" parameterType="cl.afphabitat.ws.core.model.Rol">
+                 DELETE FROM ROL WHERE ROL_ID=#{rolId}
+            </delete>
+
+                <update id="updateRolById" parameterType="cl.afphabitat.ws.core.model.Rol">
+                        UPDATE ROL SET ROL_NAME=#{name}
+                        WHERE ROL_ID=#{id}
+                </update>
+
+            
+
+</mapper>

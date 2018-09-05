@@ -1,0 +1,90 @@
+
+package cl.afphabitat.cuentas.solDeudas.ws.core.model;
+
+/*
+*  Version inicial arquetipo proyecto Habitat
+*
+*/
+public class User {
+	
+	private int id;
+	private String nombre;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
+
+	/**
+	 * 
+	 */
+	public User() {
+		super();
+	}
+	
+	/**
+	 * 
+	 * @param nombre
+	 * @param apellidoPaterno
+	 * @param apellidoMaterno
+	 */
+	public User(String nombre, String apellidoPaterno, String apellidoMaterno) {
+		super();
+		this.nombre = nombre;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @return the apellidoPaterno
+	 */
+	public String getApellidoPaterno() {
+		return apellidoPaterno;
+	}
+
+	/**
+	 * @param apellidoPaterno the apellidoPaterno to set
+	 */
+	public void setApellidoPaterno(String apellidoPaterno) {
+		this.apellidoPaterno = apellidoPaterno;
+	}
+
+	/**
+	 * @return the apellidoMaterno
+	 */
+	public String getApellidoMaterno() {
+		return apellidoMaterno;
+	}
+
+	/**
+	 * @param apellidoMaterno the apellidoMaterno to set
+	 */
+	public void setApellidoMaterno(String apellidoMaterno) {
+		this.apellidoMaterno = apellidoMaterno;
+	}
+}

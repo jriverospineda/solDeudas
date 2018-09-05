@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>cl.afphabitat.cuentas</groupId>
+		<artifactId>solDeudas</artifactId>
+		<version>0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
+	</parent>
+	<name>${project.artifactId}-${versionGlobal}</name>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>solDeudasEAR</artifactId>
+	<packaging>ear</packaging>
+	<description>EAR de proyecto_habitat</description>
+	<version>${versionGlobal}</version>
+	
+	<dependencies>
+		<dependency>
+			<groupId>cl.afphabitat.cuentas</groupId>
+			<artifactId>solDeudasBusiness</artifactId>
+			<version>0.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>cl.afphabitat.cuentas</groupId>
+			<artifactId>solDeudasEjb</artifactId>
+			<version>0.0.2</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>cl.afphabitat.cuentas</groupId>
+			<artifactId>solDeudasWeb</artifactId>
+			<version>0.0.2</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>cl.afphabitat.cuentas</groupId>
+			<artifactId>solDeudasWS</artifactId>
+			<version>0.0.2</version>
+			<type>war</type>
+		</dependency>
+						
+	</dependencies>
+
+	<!-- PlugIns Maven -->
+	<build>
+		<plugins>
+	    
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Weblogic-Application-Version>${versionGlobal}</Weblogic-Application-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="cl.afphabitat.mybatis.mapper.user">
+
+    <select id="selectAllUsers" resultType="cl.afphabitat.ws.core.model.User">
+        SELECT ID AS id, NOMBRE AS nombre, APELLIDO_PATERNO AS apellidoPaterno, APELLIDO_MATERNO AS apellidoMaterno FROM USERS
+    </select>
+
+</mapper>

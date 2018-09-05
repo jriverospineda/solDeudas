@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cl.afphabitat.cuentas</groupId>
+  <artifactId>solDeudas</artifactId>
+  <packaging>pom</packaging>
+  <name>${project.artifactId}-${versionGlobal}</name>
+  <version>0.0.2</version>
+  <description>POM General proyecto AFP_habitat</description>
+
+  <properties>
+  	<versionGlobal>BPMDEU-17</versionGlobal>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <modules>
+    <module>solDeudasBusiness</module>
+    <module>solDeudasEAR</module>
+    <module>solDeudasEjb</module>
+    <module>solDeudasWeb</module>
+    <module>solDeudasWS</module>
+  </modules>
+</project>

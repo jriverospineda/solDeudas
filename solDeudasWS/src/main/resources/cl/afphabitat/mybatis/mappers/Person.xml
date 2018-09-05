@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="cl.afphabitat.mybatis.mapper.person">
+
+    
+            <resultMap id="personMap" type="cl.afphabitat.ws.core.model.Person" >
+                    <id column="PERSON_ID" property="id"/>
+                    <result column="PERSON_NAME" property="firstName" jdbcType="VARCHAR" />
+                    <result column="PERSON_LASTNAME" property="lastName" jdbcType="VARCHAR" />
+                    <result column="PERSON_RUT" property="rut" jdbcType="VARCHAR" />
+                    <result column="ROL_NAME" property="roleName" jdbcType="VARCHAR" />
+            </resultMap>
+            
+
+    
+            <select id="selectAllPersons" resultMap="personMap">
+                SELECT PERSON_ID, PERSON_NAME, PERSON_LASTNAME, PERSON_ROLID, PERSON_RUT FROM PERSON        
+            </select>
+            
+             <select id="getPersonById" resultMap="personMap"  parameterType="cl.afphabitat.ws.core.model.Person" >
+               SELECT P.PERSON_ID, P.PERSON_NAME, P.PERSON_LASTNAME, P.PERSON_RUT FROM PERSON P
+           WHERE P.PERSON_ID = #{id}
+            </select>
+
+            <insert id="insertNewPerson"  parameterType="cl.afphabitat.ws.core.model.Person">
+                 INSERT INTO PERSON 
+                 (PERSON_ID, PERSON_NAME, PERSON_LASTNAME, PERSON_ROLID, PERSON_RUT) 
+                 VALUES (#{id}, #{firstName}, #{lastName}, #{rolId}, #{rut})
+            </insert>
+            
+             <insert id="insertPersonList" useGeneratedKeys="true" parameterType="java.util.List">
+                         INSERT INTO PERSON (PERSON_ID, PERSON_NAME, PERSON_LASTNAME, PERSON_ROLID, PERSON_RUT) 
+                                 VALUES (
+                                        <foreach collection="array" item="person" open="(" close=")" separator=",">
+                                                 #{person.id, jdbcType=INTEGER},        
+                                                  #{person.firstName, jdbcType=STRING}, 
+                                                  #{person.lastName, jdbcType=STRING}, 
+                                                  #{person.rolId, jdbcType=INTEGER}, 
+                                                  #{person.rut, jdbcType=STRING}
+                                        </foreach>
+                                  )
+                </insert>
+            
+
+            
+        
+            <delete id="deletePersonById" parameterType="cl.afphabitat.ws.core.model.Person">
+                 DELETE FROM PERSON WHERE PERSON_ID=#{id}
+            </delete>
+            
+             <delete id="deleteRolById" parameterType="cl.afphabitat.ws.core.model.Person">
+                 DELETE FROM ROL WHERE ROL_ID=#{rolId}
+            </delete>
+            
+            <delete id="deleteAllPersons">
+                 DELETE FROM PERSON
+            </delete>
+
+                <update id="updatePersonById" parameterType="cl.afphabitat.ws.core.model.Person">
+                        UPDATE PERSON SET FIRST_NAME=#{firstName}, LAST_NAME=#{lastName}
+                        WHERE PERSON_ID=#{id}
+                </update>
+
+            <select id="complexQuery" resultMap="personMap">
+                SELECT P.PERSON_ID, P.PERSON_NAME, P.PERSON_LASTNAME, P.PERSON_ROLID, P.PERSON_RUT, R.ROL_NAME 
+                FROM PERSON P, ROL R  
+                WHERE R.ROL_ID = #{id} AND P.PERSON_ROLID = R.ROL_ID;        
+            </select>
+            
+            <select id="selectAllPersonByRol" resultMap="personMap">
+                SELECT P.PERSON_ID, P.PERSON_NAME, P.PERSON_LASTNAME, P.PERSON_ROLID, P.PERSON_RUT, R.ROL_NAME 
+                FROM PERSON P, ROL R  
+                WHERE R.ROL_ID = #{id} AND P.PERSON_ROLID = R.ROL_ID;        
+            </select>
+            
+            <select id="selectUsingList" resultMap="personMap">
+                SELECT P.PERSON_ID, P.PERSON_NAME, P.PERSON_LASTNAME, P.PERSON_ROLID, P.PERSON_RUT
+                FROM PERSON P
+                
+                 <where>
+                      <if test="list != null">
+                         P.PERSON_ID IN
+                        <foreach collection="list" item="item" open="(" separator="," close=")">
+                          #{item}
+                        </foreach>
+                      </if>
+                </where>
+                
+            </select>
+            
+
+</mapper>
