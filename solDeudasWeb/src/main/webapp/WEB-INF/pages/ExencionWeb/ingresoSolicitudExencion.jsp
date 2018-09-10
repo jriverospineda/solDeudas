@@ -16,15 +16,8 @@
 	<script src="../scripts/jquery.mask.min.js"></script>
 	<script src="../scripts/jquery.validate.min.js"></script>
 	<script src="../scripts/jquery.validate.habitat.js"></script>
-<style>
-
-	#formExencion label.error {
-		margin-left: 10px;
-		width: auto;
-		display: inline;
-		color: red;
-	}
-</style>	
+	<script src="../scripts/jquery-ui.min.js"></script>
+	<script src="../scripts/jquery.Rut.js"></script>	
 </head>
 <body>
 	<div class="my-2 my-md-2">
@@ -50,7 +43,7 @@
 							</div>
 							<div class="col-md-4">
 								<label class="form-label ">Email</label>
-								<input name="emailAfiliado" id="emailAfiliado" type="text" class="form-control" value="${emailAfiliado}"/>
+								<input name="emailAfiliado" id="emailAfiliado" type="text" class="email_format form-control" value="${emailAfiliado}"/>
 							</div>
 						</div>
 					</div >
@@ -83,7 +76,7 @@
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">Email</label>
-								<input name="emailEmpleador" id="emailEmpleador" type="text" class="form-control" value="${emailEmpleador}"/>
+								<input name="emailEmpleador" id="emailEmpleador" type="text" class="email_format form-control" value="${emailEmpleador}"/>
 							</div>
 						</div>
 					</div>
@@ -91,7 +84,7 @@
 						<div class="row col-lg-12">
 							<div class="col-md-3">
 								<label class="form-label">Fecha Inicio Exenci&oacute;n</label>
-								<input type="text" name="fechaInicio" id="fechaInicio" class="form-control" placeholder="dd/mm/aaaa" value="${fechaInicio}">
+								<input type="text" name="fechaInicio" id="fechaInicio" class="form-control"  value="${fechaInicio}">
 							</div>
 							<div class="col-md-5">
 								<label class="form-label">&nbsp;</label>
@@ -149,41 +142,59 @@
 	</div>
 <script>
  $(document).ready(function() { 
- 		$('.rut_format').mask('00.000.000-K',{'translation': { K: {pattern: /[kK0-9]/}}}, {reverse: true});
-		$('#fechaInicio').mask('00/00/0000');
+    	$('#idRepresentante').hide();
+		$('#checkbox1').change(function(){
+			if(this.checked)
+				$('#idRepresentante').fadeIn();
+			else
+				$('#idRepresentante').fadeOut();
 
+		});
+		
 		// validate signup form on keyup and submit
 		$("#formExencion").validate({
 			rules: {
+				rutAfiliado: {
+					required: true,
+					validaRut: true
+				},
 				emailAfiliado: {
 					required: true,
-					email: true
+					validaEmail: true
+					//email: true
 				},
-				rutEmpleador: "required",
-				emailEmpleador: {
+				rutEmpresa: {
 					required: true,
-					email: true
+					validaRut: true
 				},
-				fechaInicio:"required"
+				emailEmpresa: {
+					required: true,
+					validaEmail: true
+				},
+				rutRepresentante: {
+					validaRut: true
+				},
+				nombreRepresentante: "required",
+				emailRepresentante: {
+				required: true,
+				email: true
+				},
+				fechaInicio:"required" 	
 			},
 			messages: {
-				rutEmpleador: "Ingrese rut v&aacute;lido",
-				emailAfiliado: "Ingrese email para el afiliado",
-				emailEmpleador: "Ingrese email para el empleador",
-				fechaInicio: "Ingrese fecha v&aacute;lida"
+				rutRepresentante: "Ingrese Rut del Representante",
+				nombreRepresentante: "Ingrese nombre del Representante",
+				emailRepresentante: "Ingrese Email del Representante",
+				fechaInicio: "Ingrese fecha de Inicio"
 			}
 		});
-		
-		function isValidRUT(rut) {
-  			if (!rut | typeof rut !== 'string') return false;
+		$( function() {
+			$( "#fechaInicio" ).datepicker();
+		} );
 
-  			var regexp = /^\d{7,8}-[k|K|\d]{1}$/;
-  			return regexp.test(rut);
-		}		
-		
-		
     });
 </script>
+
 
 </body>
 </html>

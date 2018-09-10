@@ -28,3 +28,8 @@ label.error {
 .table td, .table th {
 	padding: 0.3rem;
 }
+
+.form-control {
+	font-size:13px;
+	
+}
