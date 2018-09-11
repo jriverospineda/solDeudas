@@ -15,15 +15,6 @@
 <script src="../scripts/jquery.validate.min.js"></script>
 <script src="../scripts/jquery.validate.habitat.js"></script>
 
-<style>
-
-	#formConsultaSolicitud label.error {
-		margin-left: 10px;
-		width: auto;
-		display: inline;
-		color: red;
-	}
-</style>
 </head>
 <body >
 	<div class="my-2 my-md-2">

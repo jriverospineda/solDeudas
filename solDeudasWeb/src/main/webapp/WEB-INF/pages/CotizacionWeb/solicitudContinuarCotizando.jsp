@@ -10,20 +10,12 @@
 	<link rel="stylesheet" href="../css/forms.css" type="text/css"	media="screen" />
 	<link rel="stylesheet" href="../css/habitat_public.css" type="text/css"	media="screen" />
 	<title>Solicitud Continuar Cotizando</title>
-<script src="../scripts/jquery-1.11.0.min.js"></script>
-<script src="../scripts/jquery.mask.min.js"></script>
-<script src="../scripts/jquery.validate.min.js"></script>
-<script src="../scripts/jquery.validate.habitat.js"></script>
-
-<style>
-
-	#formConsultaSolicitud label.error {
-		margin-left: 10px;
-		width: auto;
-		display: inline;
-		color: red;
-	}
-</style>
+	<script src="../scripts/jquery-1.11.0.min.js"></script>
+	<script src="../scripts/jquery.mask.min.js"></script>
+	<script src="../scripts/jquery.validate.min.js"></script>
+	<script src="../scripts/jquery.validate.habitat.js"></script>
+	<script src="../scripts/jquery-ui.min.js"></script>
+	<script src="../scripts/jquery.Rut.js"></script>
 </head>
 <body >
 	<div class="my-2 my-md-2">
@@ -37,15 +29,17 @@
 					<div class="row m-1 pt-1">
 						<div class="row col-lg-12">
 
-							<div class="col-md-5">
-								<label class="form-label">&nbsp;</label>
+							<div class="col-md-2">
+								<label class="form-label">Fecha Solicitud</label>
+								<input type="text" name="fechaSolicitud" id="fechaSolicitud" class="form-control" placeholder="dd/mm/aaaa" readonly>
+
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">&nbsp;</label>
 							</div>
-							<div class="col-md-3">
-								<label class="form-label">Fecha Solicitud</label>
-								<input type="text" name="fechaSolicitud" id="fechaSolicitud" class="form-control" placeholder="dd/mm/aaaa" readonly>
+							<div class="col-md-6">
+								<label class="form-label">&nbsp;</label>
+
 							</div>							
 						</div>
 					</div>						
@@ -55,13 +49,13 @@
 							<label class="form-label">Rut Afiliado</label>
 							<input name="rutAfiliado" id="rutAfiliado" type="text" class="rut_format form-control"/>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<label class="form-label">Nombre Afiliado</label>
 							<input name="nombreAfiliado" id="nombreAfiliado" type="text" class="form-control"/>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-2">
 								<label class="form-label">Fecha Cotizaci&oacute;n</label>
-								<input type="text" name="fechaCotizacion" id="fechaCotizacion" class="form-control" placeholder="dd/mm/aaaa"/>
+								<input type="text" name="fechaCotizacion" id="fechaCotizacion" class="form-control"/>
 						</div>
 						</div>
 					</div>					
@@ -92,9 +86,27 @@
 	</div>
 <script>
  $(document).ready(function() { 
-		$('.rut_format').mask('00.000.000-K',{'translation': { K: {pattern: /[kK0-9]/}}}, {reverse: true});
-		$('#fechaInicio').mask('00/00/0000');
-		$('#fechaFinal').mask('00/00/0000');
+		$('#checkbox1').change(function() {
+			if($(this).is(":checked")) {
+				$(this).attr("checked");				
+				$("#rutRepresentante").prop( "disabled", false );
+				$("#nombreRepresentante").prop( "disabled", false );
+				$("#emailRepresentante").prop( "disabled", false );
+				
+			} else{
+				$("#rutRepresentante").prop( "disabled", true );
+				$("#nombreRepresentante").prop( "disabled", true );
+				$("#emailRepresentante").prop( "disabled", true );	
+				$('#rutRepresentante').val('');
+				$('#nombreRepresentante').val('');
+				$('#emailRepresentante').val('');
+				$('#emailRepresentante-error').remove();
+				$('#rutRepresentante-error').remove();
+				$('#nombreRepresentante-error').remove();
+				
+					
+			} 
+		});
 		
 		// validate signup form on keyup and submit
 		$("#formConsultaSolicitud").validate({

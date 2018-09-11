@@ -60,9 +60,6 @@
 						</div>
 					</div >
 					<div class="row m-1">
-						<div class="h7 col-lg-12">&nbsp;</div>
-					</div>
-					<div class="row m-1">
 						<div class="col-md-12">
 							<div><input id="checkbox1" type="checkbox" name="checkRepresentante" class="">Act&uacute;a como representante del Empleador</div>
 						</div>
@@ -70,15 +67,15 @@
 					<div id="idRepresentante" class="row col-lg-12 mt-1 mb-2">
 						<div class="col-md-2">
 							<label class="form-label">Rut Representante</label>
-							<input name="rutRepresentante" id="rutRepresentante" type="text" class="rut_format form-control"/>
+							<input disabled name="rutRepresentante" id="rutRepresentante" type="text" class="rut_format form-control"/>
 						</div>
 						<div class="col-md-6">
 							<label class="form-label">Nombre Representante</label>
-							<input name="nombreRepresentante" id="nombreRepresentante" type="text" class="text_format form-control"/>
+							<input disabled name="nombreRepresentante" id="nombreRepresentante" type="text" class="text_format form-control"/>
 						</div>
 						<div class="col-md-4">
 								<label class="form-label">Email</label>
-								<input name="emailRepresentante" id="emailRepresentante" type="text" class="email_format form-control"/>
+								<input disabled name="emailRepresentante" id="emailRepresentante" type="text" class="email_format form-control"/>
 						</div>
 					</div>
 										
@@ -110,6 +107,28 @@
 	</div>
 <script>
  $(document).ready(function() { 
+		
+		$('#checkbox1').change(function() {
+			if($(this).is(":checked")) {
+				$(this).attr("checked");				
+				$("#rutRepresentante").prop( "disabled", false );
+				$("#nombreRepresentante").prop( "disabled", false );
+				$("#emailRepresentante").prop( "disabled", false );
+				
+			} else{
+				$("#rutRepresentante").prop( "disabled", true );
+				$("#nombreRepresentante").prop( "disabled", true );
+				$("#emailRepresentante").prop( "disabled", true );	
+				$('#rutRepresentante').val('');
+				$('#nombreRepresentante').val('');
+				$('#emailRepresentante').val('');
+				$('#emailRepresentante-error').remove();
+				$('#rutRepresentante-error').remove();
+				$('#nombreRepresentante-error').remove();
+				
+					
+			} 
+		});
 		
 		// validate signup form on keyup and submit
 		$("#formIngresoRepresentante").validate({
