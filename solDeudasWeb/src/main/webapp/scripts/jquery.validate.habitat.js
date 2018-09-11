@@ -90,7 +90,7 @@ $('.telefono_format').mask("+560 0000-0000", {
 
 $('#reset').click(function() {
 	console.log("CLICK RESET");
-
+	alert("haha");
 
     $(this).closest('form').find("input[type=text], textarea").val("");
 });

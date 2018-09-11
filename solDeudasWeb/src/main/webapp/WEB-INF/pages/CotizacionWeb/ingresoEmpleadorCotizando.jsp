@@ -15,15 +15,6 @@
 	<script src="../scripts/jquery.validate.min.js"></script>
 	<script src="../scripts/jquery.validate.habitat.js"></script>
 	<script src="../scripts/jquery-ui.min.js"></script>
-<style>
-
-	#formExencion label.error {
-		margin-left: 10px;
-		width: auto;
-		display: inline;
-		color: red;
-	}
-</style>
 </head>
 <body >
 	<div class="my-2 my-md-2">
@@ -34,37 +25,34 @@
 					<div class="p-1 text-white bg-primary">
 						<h5 class="card-title-2">Ingreso de nuevo Empleador</h5>
 					</div>
-					<div class="row m-1">
-						<div class="h7 col-lg-12">&nbsp;</div>
-					</div>
 					<div class="row m-1 pt-1">
 						<div class="row col-lg-12">
-
-							<div class="col-md-5">
+							<div class="col-md-2">
+								<label class="form-label">Fecha Solicitud</label>
+								<input type="text" name="fechaSolicitud" id="fechaSolicitud" class="form-control" readonly>
+							</div>
+							<div class="col-md-6">
 								<label class="form-label">&nbsp;</label>
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">&nbsp;</label>
 							</div>
-							<div class="col-md-3">
-								<label class="form-label">Fecha Solicitud</label>
-								<input type="text" name="fechaSolicitud" id="fechaSolicitud" class="form-control" placeholder="dd/mm/aaaa" readonly>
-							</div>							
+							
 						</div>
 					</div>					
 					<div class="row m-1">
 						<div class="row col-lg-12">
 							<div class="col-md-2">
 								<label class="form-label">Rut Empleador</label>
-								<input name="rutEmpresa" id="rutEmpleador" type="text" class="form-control rut_format"/>
+								<input name="rutEmpleador" id="rutEmpleador" type="text" class="form-control rut_format"/>
 							</div>
 							<div class="col-md-6">
 								<label class="form-label">Raz&oacute;n Social</label>
-								<input name="razonSocial" id="razonSocial" type="text" class="form-control"/>
+								<input name="razonSocial" id="razonSocial" type="text" class="text_format form-control"/>
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">Email</label>
-								<input name="emailEmpresa" id="emailEmpresa" type="text" class="form-control"/>
+								<input name="emailEmpresa" id="emailEmpresa" type="text" class="email_format form-control"/>
 							</div>
 						</div>
 					</div>					
@@ -72,15 +60,15 @@
 						<div class="row col-lg-12">
 							<div class="col-md-6">
 								<label class="form-label">Direcci&oacute;n</label>
-								<input name="direccionEmpleador" id="direccionEmpleador" type="text" class="form-control"/>
+								<input name="direccionEmpleador" id="direccionEmpleador" type="text" class="text_format form-control"/>
 							</div>		
 							<div class="col-md-3">
 								<label class="form-label">Tel&eacute;fono</label>
-								<input name="telefonoEmpleador" id="telefonoEmpleador" type="text" class="form-control"/>
+								<input name="telefonoEmpleador" id="telefonoEmpleador" type="text" class="telefono_format  form-control"/>
 							</div>											
 							<div class="col-md-3">
 								<label class="form-label">Celular</label>
-								<input name="celularEmpleador" id="celularEmpleador" type="text" class="form-control"/>
+								<input name="celularEmpleador" id="celularEmpleador" type="text" class="telefono_format form-control"/>
 							</div>	
 						</div>
 					</div >
@@ -92,11 +80,11 @@
 						</div>
 						<div class="col-md-6">
 							<label class="form-label">Nombre Representante</label>
-							<input name="nombreRepresentante" id="nombreRepresentante" type="text" class="form-control"/>
+							<input name="nombreRepresentante" id="nombreRepresentante" type="text" class="text_format form-control"/>
 						</div>
 						<div class="col-md-4">
 								<label class="form-label">Email</label>
-								<input name="emailRepresentante" id="emailRepresentante" type="text" class="form-control"/>
+								<input name="emailRepresentante" id="emailRepresentante" type="text" class="email_format form-control"/>
 						</div>
 						</div>
 					</div>
@@ -129,47 +117,38 @@
 	</div>
 <script>
  $(document).ready(function() { 
-    	/*$('#idRepresentante').hide();
-		$('#checkbox1').change(function(){
-			if(this.checked)
-				$('#idRepresentante').fadeIn();
-			else
-				$('#idRepresentante').fadeOut();
-
-		});*/
-		$('.rut_format').mask('00.000.000-K',{'translation': { K: {pattern: /[kK0-9]/}}}, {reverse: true});
-		$('#fechaInicio').mask('00/00/0000');
 		
 		// validate signup form on keyup and submit
 		$("#formExencion").validate({
-			rules: {
-				rutAfiliado: "required",
+			rules: { 
+				rutEmpleador: {
+					required: true,
+					validaRut: true
+				},
 				emailAfiliado: {
 					required: true,
-					email: true
+					validaEmail: true
 				},
-				rutEmpresa: "required",
+				rutRepresentante: {
+					required: true,
+					validaRut: true
+				},
 				emailEmpresa: {
 					required: true,
-					email: true
+					validaRut: true
 				},
-				rutRepresentante: "required",
+				razonSocial: "required",
 				nombreRepresentante: "required",
 				emailRepresentante: {
-				required: true,
-				email: true
+					required: true,
+					validaEmail: true
 				},
-				fechaInicio:"required"
+				telefonoEmpleador:"required",
+				celularEmpleador:"required"
 			},
 			messages: {
-				rutAfiliado: "Ingrese Rut del Afiliado",
-				emailAfiliado: "Ingrese email del Afiliado",
-				rutEmpresa: "Ingrese Rut de la Empresa",
-				emailEmpresa: "Ingrese email de la Empresa",
-				rutRepresentante: "Ingrese Rut del Representante",
-				nombreRepresentante: "Ingrese nombre del Representante",
-				emailRepresentante: "Ingrese Email del Representante",
-				fechaInicio: "Ingrese fecha de Inicio"
+				
+
 			}
 		});
 

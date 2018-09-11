@@ -31,7 +31,7 @@
 
 							<div class="col-md-2">
 								<label class="form-label">Fecha Solicitud</label>
-								<input type="text" name="fechaSolicitud" id="fechaSolicitud" class="form-control" placeholder="dd/mm/aaaa" readonly>
+								<input type="text" name="fechaSolicitud" id="fechaSolicitud" class="form-control" readonly>
 
 							</div>
 							<div class="col-md-4">
@@ -49,14 +49,18 @@
 							<label class="form-label">Rut Afiliado</label>
 							<input name="rutAfiliado" id="rutAfiliado" type="text" class="rut_format form-control"/>
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-6">
 							<label class="form-label">Nombre Afiliado</label>
 							<input name="nombreAfiliado" id="nombreAfiliado" type="text" class="form-control"/>
 						</div>
+
 						<div class="col-md-2">
 								<label class="form-label">Fecha Cotizaci&oacute;n</label>
 								<input type="text" name="fechaCotizacion" id="fechaCotizacion" class="form-control"/>
 						</div>
+												<div class="col-md-2">
+							<label class="form-label">&nbsp;</label>
+						</div>	
 						</div>
 					</div>					
 					 
@@ -86,50 +90,28 @@
 	</div>
 <script>
  $(document).ready(function() { 
-		$('#checkbox1').change(function() {
-			if($(this).is(":checked")) {
-				$(this).attr("checked");				
-				$("#rutRepresentante").prop( "disabled", false );
-				$("#nombreRepresentante").prop( "disabled", false );
-				$("#emailRepresentante").prop( "disabled", false );
-				
-			} else{
-				$("#rutRepresentante").prop( "disabled", true );
-				$("#nombreRepresentante").prop( "disabled", true );
-				$("#emailRepresentante").prop( "disabled", true );	
-				$('#rutRepresentante').val('');
-				$('#nombreRepresentante').val('');
-				$('#emailRepresentante').val('');
-				$('#emailRepresentante-error').remove();
-				$('#rutRepresentante-error').remove();
-				$('#nombreRepresentante-error').remove();
-				
-					
-			} 
-		});
 		
 		// validate signup form on keyup and submit
 		$("#formConsultaSolicitud").validate({
 			rules: {
-				idSolicitud: "required",
-				rutEmpresa: "required",
-				fechaInicio: "required",
-				fechaFinal: "required",				
-				tipoCertificado: {
-					required: true,
-					combo:true
-				}
+				rutAfiliado: "required",
+				nombreAfiliado: "required",
+				fechaCotizacion: "required",
+				fechaFinal: "required"
 			},
 			messages: {
-				idSolicitud: "Ingrese Folio",
-				rutEmpresa: "Ingrese Rut de la empresa",
-				fechaInicio: "Ingrese Fecha de inicio",
-				fechaFinal: "Ingrese Fecha de fin",
-				tipoCertificado: "Ingrese el Tipo de Solicitud"
+				nombreAfiliado: "Ingrese nombre del afiliado",
+				rutAfiliado: "Ingrese Rut del afiliado",
+				fechaCotizacion: "Ingrese Fecha de cotización",
+				fechaFinal: "Ingrese Fecha de fin"
 			}
 		});
-
+  		 $( function() {
+			$( "#fechaCotizacion" ).datepicker();
+		} );
     });
+
+		
 </script>
 
 </body>
