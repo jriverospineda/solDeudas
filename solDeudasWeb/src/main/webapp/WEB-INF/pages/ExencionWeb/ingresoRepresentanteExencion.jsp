@@ -15,6 +15,7 @@
 	<script src="../scripts/jquery.validate.min.js"></script>
 	<script src="../scripts/jquery.validate.habitat.js"></script>
 	<script src="../scripts/jquery-ui.min.js"></script>
+	<script src="../scripts/jquery.Rut.js"></script>	
 </head>
 <body >
 	<div class="my-2 my-md-2">
@@ -134,14 +135,20 @@
 		$("#formIngresoRepresentante").validate({
 			rules: {
 				razonSocial: "required",
-				rutEmpresa: "required",
+				rutEmpresa: {
+					required: true,
+					validaRut: true
+				},
 				direccionEmpleador: "required",
 				telefonoEmpleador:"required",
 				emailEmpresa: {
 					required: true,
 					validaEmail: true
 				},
-				rutRepresentante: "required",
+				rutRepresentante: {
+					required: true,
+					validaRut: true
+				},
 				nombreRepresentante: "required",
 				emailRepresentante: {
 					required: true,

@@ -48,22 +48,20 @@
 						</div>
 					</div >
 					<div class="row col-lg-12 mt-1 mb-2">
-						<div class="col-md-6">
+						<div class="col-md-3">
 							<div><input id="edadLegal" type="checkbox" name="edadLegal" value="${'SI'}">Cumplimiento Edad Legal</div>
+							
+						</div>
+						<div class="col-md-3">
 							<div><input id="pensionadoDL3500" type="checkbox" name="pensionadoDL3500" class="" value="${'SI'}">Pensionado D.L. 3.500</div>
+						</div>
+						<div class="col-md-3">
 							<div><input id="pensionadosistemaAntiguo" type="checkbox" name="pensionadosistemaAntiguo" class="" value="${'SI'}">Pensionado Antiguo Sistema</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<label class="form-label">&nbsp;</label>
 						</div>
-						<div class="col-md-2">
-							<label class="form-label">&nbsp;</label>
-						</div>
-					</div>
-					<div class="row m-1">
-						<div class="h7 col-lg-12">&nbsp;</div>
-					</div>
-					
+					</div>					
 					<div class="row m-1">
 						<div class="row col-lg-12">
 							<div class="col-md-2">
@@ -82,11 +80,11 @@
 					</div>
 					<div class="row m-1 pt-1">
 						<div class="row col-lg-12">
-							<div class="col-md-3">
+							<div class="col-md-2">
 								<label class="form-label">Fecha Inicio Exenci&oacute;n</label>
 								<input type="text" name="fechaInicio" id="fechaInicio" class="form-control"  value="${fechaInicio}">
 							</div>
-							<div class="col-md-5">
+							<div class="col-md-6">
 								<label class="form-label">&nbsp;</label>
 							</div>
 							<div class="col-md-4">
@@ -142,15 +140,7 @@
 	</div>
 <script>
  $(document).ready(function() { 
-    	$('#idRepresentante').hide();
-		$('#checkbox1').change(function(){
-			if(this.checked)
-				$('#idRepresentante').fadeIn();
-			else
-				$('#idRepresentante').fadeOut();
 
-		});
-		
 		// validate signup form on keyup and submit
 		$("#formExencion").validate({
 			rules: {
@@ -163,7 +153,7 @@
 					validaEmail: true
 					//email: true
 				},
-				rutEmpresa: {
+				rutEmpleador: {
 					required: true,
 					validaRut: true
 				},
@@ -174,10 +164,11 @@
 				rutRepresentante: {
 					validaRut: true
 				},
-				nombreRepresentante: "required",
-				emailRepresentante: {
-				required: true,
-				email: true
+				nombreCompleto: "required",
+				razonSocial: "required",
+				emailEmpleador: {
+					required: true,
+					validaEmail: true
 				},
 				fechaInicio:"required" 	
 			},

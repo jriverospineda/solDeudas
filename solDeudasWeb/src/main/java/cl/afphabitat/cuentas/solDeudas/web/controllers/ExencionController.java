@@ -212,7 +212,7 @@ public class ExencionController extends MultiActionController {
 	        	}
 	        }
 	        modelView.addObject("exceptionVO", exceptionVO);
-			System.out.println("ingresoSolicitudExencion111.htm");
+			System.out.println("ingresoSolicitudExencion.htm");
     	}
  
 		return modelView;

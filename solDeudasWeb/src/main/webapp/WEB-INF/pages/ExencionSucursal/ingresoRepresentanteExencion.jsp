@@ -15,15 +15,8 @@
 	<script src="../scripts/jquery.validate.min.js"></script>
 	<script src="../scripts/jquery.validate.habitat.js"></script>
 	<script src="../scripts/jquery-ui.min.js"></script>
-<style>
+	<script src="../scripts/jquery.Rut.js"></script>	
 
-	#formExencion label.error {
-		margin-left: 10px;
-		width: auto;
-		display: inline;
-		color: red;
-	}
-</style>
 </head>
 <body >
 	<div class="my-2 my-md-2">
@@ -73,7 +66,7 @@
 					</div>
 					<div class="row m-1">
 						<div class="col-md-12">
-							<div><input id="checkbox1" type="checkbox" name="checkRepresentante" class="">Act&uacute;a como representante del Empleador</div>
+							<div><input id="checkbox1" type="checkbox" name="checkRepresentante">Act&uacute;a como representante del Empleador</div>
 						</div>
 					</div>
 					<div id="idRepresentante" class="row col-lg-12 mt-1 mb-2">
@@ -119,16 +112,27 @@
 	</div>
 <script>
  $(document).ready(function() { 
-    	/*$('#idRepresentante').hide();
-		$('#checkbox1').change(function(){
-			if(this.checked)
-				$('#idRepresentante').fadeIn();
-			else
-				$('#idRepresentante').fadeOut();
-
-		});*/
-		$('.rut_format').mask('00.000.000-K',{'translation': { K: {pattern: /[kK0-9]/}}}, {reverse: true});
-		$('#fechaInicio').mask('00/00/0000');
+		$('#checkbox1').change(function() {
+			if($(this).is(":checked")) {
+				$(this).attr("checked");				
+				$("#rutRepresentante").prop( "disabled", false );
+				$("#nombreRepresentante").prop( "disabled", false );
+				$("#emailRepresentante").prop( "disabled", false );
+				
+			} else{
+				$("#rutRepresentante").prop( "disabled", true );
+				$("#nombreRepresentante").prop( "disabled", true );
+				$("#emailRepresentante").prop( "disabled", true );	
+				$('#rutRepresentante').val('');
+				$('#nombreRepresentante').val('');
+				$('#emailRepresentante').val('');
+				$('#emailRepresentante-error').remove();
+				$('#rutRepresentante-error').remove();
+				$('#nombreRepresentante-error').remove();
+				
+					
+			} 
+		});
 		
 		// validate signup form on keyup and submit
 		$("#formExencion").validate({
