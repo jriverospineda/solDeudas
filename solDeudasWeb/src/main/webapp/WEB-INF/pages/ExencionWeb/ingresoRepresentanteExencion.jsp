@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css"	media="screen" />
 	<link rel="stylesheet" href="../css/forms.css" type="text/css"	media="screen" />
 	<link rel="stylesheet" href="../css/habitat_public.css" type="text/css"	media="screen" />	
-	<title>Solicitud de Exenci&oacute;n</title>
+	<title>Ingreso Empleador y Representante Legal Web</title>
 	<script src="../scripts/jquery-1.11.0.min.js"></script>
 	<script src="../scripts/jquery.mask.min.js"></script>
 	<script src="../scripts/jquery.validate.min.js"></script>

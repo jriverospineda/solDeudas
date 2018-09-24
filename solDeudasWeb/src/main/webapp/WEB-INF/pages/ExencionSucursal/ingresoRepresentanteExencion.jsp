@@ -21,7 +21,7 @@
 <body >
 	<div class="my-2 my-md-2">
 		<div class="container">
-		<form id="formExencion" method="get" action=""> 
+		<form id="formIngresoRepresentante" method="get" action=""> 
 			<div class="row">
 				<div class="col-12">
 					<div class="p-1 text-white bg-primary">
@@ -112,6 +112,7 @@
 	</div>
 <script>
  $(document).ready(function() { 
+		
 		$('#checkbox1').change(function() {
 			if($(this).is(":checked")) {
 				$(this).attr("checked");				
@@ -135,23 +136,27 @@
 		});
 		
 		// validate signup form on keyup and submit
-		$("#formExencion").validate({
+		$("#formIngresoRepresentante").validate({
 			rules: {
-				rutAfiliado: "required",
-				emailAfiliado: {
+				razonSocial: "required",
+				rutEmpresa: {
 					required: true,
-					email: true
+					validaRut: true
 				},
-				rutEmpresa: "required",
+				direccionEmpleador: "required",
+				telefonoEmpleador:"required",
 				emailEmpresa: {
 					required: true,
-					email: true
+					validaEmail: true
 				},
-				rutRepresentante: "required",
+				rutRepresentante: {
+					required: true,
+					validaRut: true
+				},
 				nombreRepresentante: "required",
 				emailRepresentante: {
-				required: true,
-				email: true
+					required: true,
+					validaEmail: true
 				},
 				fechaInicio:"required"
 			},
