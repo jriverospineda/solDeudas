@@ -39,7 +39,7 @@ public class CertificadoVO {
     private java.math.BigDecimal seguro;
     private java.math.BigDecimal total;
     private String producto;
-    private java.math.BigDecimal montoMora;
+    private java.math.BigDecimal montoMora;  
     
 	public java.math.BigDecimal getIdEjecucion() {
 		return idEjecucion;
@@ -271,6 +271,5 @@ public class CertificadoVO {
 	public void setIdProductoCCIAV(java.math.BigDecimal idProductoCCIAV) {
 		this.idProductoCCIAV = idProductoCCIAV;
 	}
-	
 	
 }

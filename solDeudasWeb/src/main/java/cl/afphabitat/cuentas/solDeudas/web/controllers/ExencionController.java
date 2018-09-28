@@ -99,7 +99,7 @@ public class ExencionController extends MultiActionController {
 	@RequestMapping("/ExencionWeb/seleccionSolicitudExencion.htm")
 	public ModelAndView seleccionSolExencionWebHandler(HttpServletRequest request) {
 		ModelAndView modelView = new ModelAndView();
-
+		
 		System.out.println("seleccionSolicitudExencion.htm");
 		return modelView;
 	}
@@ -133,7 +133,17 @@ public class ExencionController extends MultiActionController {
             modelView.addObject("rutAfiliado",rutSession);        	       	
             modelView.addObject("nombreCompleto",response.getInformacionAfiliado().getNombrePrimer() + " " + response.getInformacionAfiliado().getNombreSegundo() + " " + response.getInformacionAfiliado().getApellidoPaterno() + " " + response.getInformacionAfiliado().getApellidoMaterno());
             modelView.addObject("email",response.getInformacionAfiliado().getEmail());        	
-            modelView.addObject("sistemaAntiguo",exencionVO.getSistemaAntiguo());     	
+            modelView.addObject("sistemaAntiguo",exencionVO.getSistemaAntiguo());  
+            
+    		String sistemaAntiguo = exencionVO.getSistemaAntiguo();
+
+    		System.out.println("*** sistemaAntiguo : " + sistemaAntiguo);
+    		if (sistemaAntiguo.equalsIgnoreCase("SI"))
+    		{
+    			modelView.addObject("pensionadosistemaAntiguo", sistemaAntiguo);
+    			System.out.println("*** dentro del if ");
+    		}
+    		
         }
 
         return modelView;
@@ -153,12 +163,13 @@ public class ExencionController extends MultiActionController {
 		modelView.addObject("nombreCompleto", request.getParameter("nombreCompleto"));
 		modelView.addObject("sistemaAntiguo", request.getParameter("sistemaAntiguo"));
 		
+
 		System.out.println("ingresoSolicitudExencion111.htm");
 		logger.debug("Entrando a la pagina de Ingreso Solicitud ExencionPAC.");
  
 		return modelView;
 	}
-    
+
     @RequestMapping(value = "/ExencionWeb/ingresoSolicitudExencion.htm", method = RequestMethod.POST)
   	public ModelAndView submitWebIngresoExencion(@ModelAttribute("exencionVO") ExencionVO exencionVO, HttpServletRequest requestServlet) {
 
@@ -212,9 +223,9 @@ public class ExencionController extends MultiActionController {
 	        	}
 	        }
 	        modelView.addObject("exceptionVO", exceptionVO);
-			System.out.println("ingresoSolicitudExencion.htm");
+			System.out.println("ingresoSolicitudExencion111.htm");
     	}
- 
+    
 		return modelView;
 	}
 
