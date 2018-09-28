@@ -37,7 +37,7 @@
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">¿Es Usted pensionado del antiguo sistema?</label><br>
-								<label class="form-label"><div><input type="radio" name="sistemaAntiguo" id="antiguoSi"checked value="${'SI'}"/>Si
+								<label class="form-label"><div><input type="radio" name="sistemaAntiguo" id="antiguoSi" checked value="${'SI'}"/>Si
 								<input type="radio" name="sistemaAntiguo" id="antiguoNo" value="${'NO'}"/>No</div></label>
 							</div>
 							<div class="col-md-4">
@@ -72,59 +72,6 @@
 		</form>
 		</div>
 	</div>
-<script>
- $(document).ready(function() { 
-    	$('#idRepresentante').hide();
-		$('#checkbox1').change(function(){
-			if(this.checked)
-				$('#idRepresentante').fadeIn();
-			else
-				$('#idRepresentante').fadeOut();
-
-		});
-		
-		// validate signup form on keyup and submit
-		$("#formExencion").validate({
-			rules: {
-				rutAfiliado: {
-					required: true,
-					validaRut: true
-				},
-				emailAfiliado: {
-					required: true,
-					validaEmail: true
-					//email: true
-				},
-				rutEmpresa: {
-					required: true,
-					validaRut: true
-				},
-				emailEmpresa: {
-					required: true,
-					validaEmail: true
-				},
-				rutRepresentante: {
-					validaRut: true
-				},
-				nombreRepresentante: "required",
-				emailRepresentante: {
-				required: true,
-				email: true
-				}
-			},
-			messages: {
-				rutRepresentante: "Ingrese Rut del Representante",
-				nombreRepresentante: "Ingrese nombre del Representante",
-				emailRepresentante: "Ingrese Email del Representante",
-				fechaInicio: "Ingrese fecha de Inicio"
-			}
-		});
-		$( function() {
-			$( "#fechaInicio" ).datepicker();
-		} );
-
-    });
-</script>
 
 </body>
 </html>

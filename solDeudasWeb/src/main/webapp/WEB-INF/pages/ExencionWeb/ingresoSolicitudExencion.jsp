@@ -43,30 +43,39 @@
 							</div>
 							<div class="col-md-4">
 								<label class="form-label ">Email</label>
-								<input name="emailAfiliado" id="emailAfiliado" type="text" class="email_format form-control" value="${emailAfiliado}"/>
+								<input name="emailAfiliado" id="emailAfiliado" type="text" class="form-control" value="${emailAfiliado}"/>
 							</div>
 						</div>
 					</div >
 					<div class="row col-lg-12 mt-1 mb-2">
-						<div class="col-md-3">
+						<div class="col-md-6">
 							<div><input id="edadLegal" type="checkbox" name="edadLegal" value="${'SI'}">Cumplimiento Edad Legal</div>
-							
-						</div>
-						<div class="col-md-3">
 							<div><input id="pensionadoDL3500" type="checkbox" name="pensionadoDL3500" class="" value="${'SI'}">Pensionado D.L. 3.500</div>
+							<lista:choose>
+								<lista:when test="${sistemaAntiguo == 'SI'}">
+									<div><input id="pensionadosistemaAntiguo" type="checkbox" name="pensionadosistemaAntiguo" checked class="" value="${'SI'}">Pensionado Antiguo Sistema</div>		
+								</lista:when>
+								<lista:otherwise>
+									<div><input id="pensionadosistemaAntiguo" type="checkbox" name="pensionadosistemaAntiguo" class="" value="${'SI'}">Pensionado Antiguo Sistema</div>
+								</lista:otherwise>
+							</lista:choose>
 						</div>
-						<div class="col-md-3">
-							<div><input id="pensionadosistemaAntiguo" type="checkbox" name="pensionadosistemaAntiguo" class="" value="${'SI'}">Pensionado Antiguo Sistema</div>
-						</div>
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<label class="form-label">&nbsp;</label>
 						</div>
-					</div>					
+						<div class="col-md-2">
+							<label class="form-label">&nbsp;</label>
+						</div>
+					</div>
+					<div class="row m-1">
+						<div class="h7 col-lg-12">&nbsp;</div>
+					</div>
+					
 					<div class="row m-1">
 						<div class="row col-lg-12">
 							<div class="col-md-2">
 								<label class="form-label">Rut Empresa</label>
-								<input name="rutEmpleador" id="rutEmpleador" type="text" class="rut_format form-control" value="${rutEmpleador}"/>
+								<input name="rutEmpleador" id="rutEmpleador" type="text" class="rut_format form-control" onblur="callBuscarEmpleador();" value="${rutEmpleador}"/>
 							</div>
 							<div class="col-md-6">
 								<label class="form-label">Raz&oacute;n Social</label>
@@ -74,17 +83,17 @@
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">Email</label>
-								<input name="emailEmpleador" id="emailEmpleador" type="text" class="email_format form-control" value="${emailEmpleador}"/>
+								<input name="emailEmpleador" id="emailEmpleador" type="text" class="form-control" value="${emailEmpleador}"/>
 							</div>
 						</div>
 					</div>
 					<div class="row m-1 pt-1">
 						<div class="row col-lg-12">
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<label class="form-label">Fecha Inicio Exenci&oacute;n</label>
 								<input type="text" name="fechaInicio" id="fechaInicio" class="form-control"  value="${fechaInicio}">
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-5">
 								<label class="form-label">&nbsp;</label>
 							</div>
 							<div class="col-md-4">
@@ -139,15 +148,31 @@
 		</div>
 	</div>
 <script>
- $(document).ready(function() { 
+function callBuscarEmpleador()
+{
 
+
+}
+
+
+
+ $(document).ready(function() { 
+    	/*$('#idRepresentante').hide();
+		$('#checkbox1').change(function(){
+			if(this.checked)
+				$('#idRepresentante').fadeIn();
+			else
+				$('#idRepresentante').fadeOut();
+
+		});*/
+		
 		// validate signup form on keyup and submit
 		$("#formExencion").validate({
 			rules: {
-				rutAfiliado: {
+				/*rutAfiliado: {
 					required: true,
 					validaRut: true
-				},
+				},*/
 				emailAfiliado: {
 					required: true,
 					validaEmail: true
@@ -157,26 +182,25 @@
 					required: true,
 					validaRut: true
 				},
-				emailEmpresa: {
-					required: true,
-					validaEmail: true
-				},
-				rutRepresentante: {
-					validaRut: true
-				},
-				nombreCompleto: "required",
-				razonSocial: "required",
 				emailEmpleador: {
 					required: true,
 					validaEmail: true
 				},
+				/*rutRepresentante: {
+					validaRut: true
+				},
+				nombreRepresentante: "required",
+				emailRepresentante: {
+				required: true,
+				email: true
+				},*/
 				fechaInicio:"required" 	
 			},
 			messages: {
-				rutRepresentante: "Ingrese Rut del Representante",
-				nombreRepresentante: "Ingrese nombre del Representante",
-				emailRepresentante: "Ingrese Email del Representante",
-				fechaInicio: "Ingrese fecha de Inicio"
+				emailAfiliado: "Ingresar un email.",
+				rutEmpleador: "Ingresar rut empresa.",
+				emailEmpleador: "Ingresar un email.",
+				fechaInicio: "Ingresar fecha de inicio."
 			}
 		});
 		$( function() {
