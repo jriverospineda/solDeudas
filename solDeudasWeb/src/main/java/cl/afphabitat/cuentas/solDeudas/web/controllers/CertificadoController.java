@@ -1,13 +1,20 @@
 package cl.afphabitat.cuentas.solDeudas.web.controllers;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
-
 import cl.afphabitat.cuentas.solDeudas.web.vo.CertificadoVO;
 import cl.afphabitat.cuentas.solDeudas.web.vo.SolicitudCertificadoVO;
 import cl.afphabitat.soap.certificado.GetCertDetDeudaRequest;
@@ -30,6 +36,7 @@ import cl.afphabitat.soap.certificado.GetCertDicomEmpleadorResponse;
 import cl.afphabitat.soap.certificado.GetCertMoraPresuntaEmpleadorProxy;
 import cl.afphabitat.soap.certificado.GetCertMoraPresuntaRequest;
 import cl.afphabitat.soap.certificado.GetCertMoraPresuntaResponse;
+import cl.afphabitat.cuentas.solDeudas.web.util.CertificadoPDF;
 import cl.afphabitat.cuentas.solDeudas.web.util.Common;
 import cl.afphabitat.cuentas.solDeudas.web.util.PropertiesFile;
 
@@ -68,29 +75,18 @@ public class CertificadoController extends MultiActionController {
 	@RequestMapping("/CertificadoWeb/emisionCertificado.htm")
 	public ModelAndView certificadoWebHandler(HttpServletRequest request) throws Exception {
 		ModelAndView modelView = new ModelAndView();
-		
-		//SolicitudCertificadoVo solicitudCertificado = new SolicitudCertificadoVo();
-		  try
-		  {
 
-			  /*solicitudCertificado.setRutEmpresa("1234567890");
-			  
-			  
-			  
-			  logger.info(solicitudCertificado);
-		       	modelView.addObject("rutEmpresa", solicitudCertificado.getRutEmpresa());
-	        System.out.println("emisionCertificado.htm");*/
-	  } catch (Exception e) {
-	   e.printStackTrace();
-	  }   
+	    System.out.println("emisionCertificado.htm");
 		return modelView;
 	}		
 	
-    @RequestMapping(value = "/CertificadoWeb/emisionCertificado.htm", method = RequestMethod.POST)
-  	public ModelAndView submitWeb(@ModelAttribute("solicitudCertificadoVO") SolicitudCertificadoVO solicitudCertificadoVO) {
+	@RequestMapping(value = "/CertificadoWeb/emisionCertificado.htm", method = RequestMethod.POST)
+  	public ModelAndView submitWeb(@ModelAttribute("solicitudCertificadoVO") SolicitudCertificadoVO solicitudCertificadoVO,HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
 
     	ModelAndView modelView = new ModelAndView();
-    	
+    	ModelAndView modelViewPrint = new ModelAndView("redirect:/CertificadoWeb/printCertificado.htm");
+    	ModelAndView modelViewClean = new ModelAndView("redirect:/CertificadoWeb/emisionCertificado.htm");
+
     	modelView.addObject("rutEmpresa", solicitudCertificadoVO.getRutEmpresa());
         System.out.println("*** solicitudCertificadoVO.getRutEmpresa() : " + solicitudCertificadoVO.getRutEmpresa());
         modelView.addObject("tipoCertificado", solicitudCertificadoVO.getTipoCertificado());
@@ -99,6 +95,14 @@ public class CertificadoController extends MultiActionController {
        	modelView.addObject("fechaFinal", solicitudCertificadoVO.getFechaFinal());
         System.out.println("*** solicitudCertificadoVO.getFechaInicio() : " + solicitudCertificadoVO.getFechaInicio()); 
         System.out.println("*** solicitudCertificadoVO.getFechaFinal() : " + solicitudCertificadoVO.getFechaFinal()); 
+        
+        if("reset".equalsIgnoreCase(solicitudCertificadoVO.getBoton()))
+        {
+        	return modelViewClean;
+        }
+    	
+        List<CertificadoVO> listaCertificadoVO = new ArrayList<CertificadoVO>();
+        CertificadoVO certificadoVO = new CertificadoVO();
         
         if (solicitudCertificadoVO.getTipoCertificado() == 1)
         {  
@@ -121,8 +125,8 @@ public class CertificadoController extends MultiActionController {
 	        
 	        System.out.println("*** response : " + response.getInformacionCertificado().length);
 	        
-	        List<CertificadoVO> listaCertificadoVO = new ArrayList<CertificadoVO>();
-	        CertificadoVO certificadoVO = new CertificadoVO();
+	        listaCertificadoVO = new ArrayList<CertificadoVO>();
+	        certificadoVO = new CertificadoVO();
 	
 	
 	        if (response.getInformacionCertificado() != null)
@@ -170,8 +174,8 @@ public class CertificadoController extends MultiActionController {
 				e.printStackTrace();
 			}
 	        
-	        List<CertificadoVO> listaCertificadoVO = new ArrayList<CertificadoVO>();
-	        CertificadoVO certificadoVO = new CertificadoVO();
+	        listaCertificadoVO = new ArrayList<CertificadoVO>();
+	        certificadoVO = new CertificadoVO();
 	
 	
 	        if (response.getInformacionCertificado() != null)
@@ -227,8 +231,8 @@ public class CertificadoController extends MultiActionController {
 				e.printStackTrace();
 			}
 	        
-	        List<CertificadoVO> listaCertificadoVO = new ArrayList<CertificadoVO>();
-	        CertificadoVO certificadoVO = new CertificadoVO();
+	        listaCertificadoVO = new ArrayList<CertificadoVO>();
+	        certificadoVO = new CertificadoVO();
 	
 	
 	        if (response.getInformacionCertificado() != null)
@@ -277,8 +281,8 @@ public class CertificadoController extends MultiActionController {
 				e.printStackTrace();
 			}
 	        
-	        List<CertificadoVO> listaCertificadoVO = new ArrayList<CertificadoVO>();
-	        CertificadoVO certificadoVO = new CertificadoVO();
+	        listaCertificadoVO = new ArrayList<CertificadoVO>();
+	        certificadoVO = new CertificadoVO();
 	
 	
 	        if (response.getInformacionCertificado() != null)
@@ -309,12 +313,116 @@ public class CertificadoController extends MultiActionController {
 	        System.out.println("*** listaCertificadoVO : " + listaCertificadoVO.size());          	
         	
         }
+        
+        /* certificado en pdf */
+        System.out.println("*** solicitudCertificadoVO.getBoton() : " + solicitudCertificadoVO.getBoton());  
+        if("PDF_DeudaTotalEmpleador".equalsIgnoreCase(solicitudCertificadoVO.getBoton()))
+        {
+    		ServletContext servletContext = httpRequest.getSession().getServletContext();
+    	    File tempDirectory = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
+    	    String temperotyFilePath = tempDirectory.getAbsolutePath();
+    	    String nombreArchivo = "CertDeudaTotalEmpleador.pdf";
+    	    
+     	    modelViewPrint.addObject("tempDirectory",tempDirectory.getAbsolutePath());
+     	    modelViewPrint.addObject("url",tempDirectory.getAbsolutePath() + "/" + nombreArchivo);
+     	    modelViewPrint.addObject("nombreArchivo",nombreArchivo);
+    	        	    
+    	    System.out.println("**** temperotyFilePath : " + temperotyFilePath);
+        	CertificadoPDF.getCertDeudaTotalEmpleadorPDF(temperotyFilePath, nombreArchivo,listaCertificadoVO,solicitudCertificadoVO);
+        	return modelViewPrint;	
         	
+        }else if ("PDF_MoraPresuntaEmpleador".equalsIgnoreCase(solicitudCertificadoVO.getBoton()))
+        {
+
+    		ServletContext servletContext = httpRequest.getSession().getServletContext();
+    	    File tempDirectory = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
+    	    String temperotyFilePath = tempDirectory.getAbsolutePath();
+    	    String nombreArchivo = "CertMoraPresuntaEmpleador.pdf";
+    	    
+     	    modelViewPrint.addObject("tempDirectory",tempDirectory.getAbsolutePath());
+     	    modelViewPrint.addObject("url",tempDirectory.getAbsolutePath() + "/" + nombreArchivo);
+     	    modelViewPrint.addObject("nombreArchivo",nombreArchivo);
+    	        	    
+    	    System.out.println("**** temperotyFilePath : " + temperotyFilePath);
+        	CertificadoPDF.getCertMoraPresuntaEmpleadorPDF(temperotyFilePath, nombreArchivo,listaCertificadoVO,solicitudCertificadoVO);
+        	return modelViewPrint;	
+        	
+        	
+        	
+        }
+        
         
         return modelView;
 	
     }
 	
+    @RequestMapping(value = "/CertificadoWeb/printCertificado.htm")
+	public ModelAndView printCertificadoHandler(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView modelView = new ModelAndView();
+
+	  try
+	  {
+		    modelView.addObject("url",request.getParameter("url"));
+	       	System.out.println("url = " + request.getParameter("url"));
+	       	System.out.println("tempDirectory = " + request.getParameter("tempDirectory"));
+	       	System.out.println("nombreArchivo = " + request.getParameter("nombreArchivo"));
+	       	
+	       	String url = request.getParameter("url");
+	       	String tempDirectory = request.getParameter("tempDirectory");
+	       	String nombreArchivo = request.getParameter("nombreArchivo");
+	       	
+		    response.setContentType("application/pdf");
+		    response.setHeader("Content-disposition", "attachment; filename="+ nombreArchivo);
+		    try {
+		        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		        baos = convertPDFToByteArrayOutputStream(tempDirectory+"/"+nombreArchivo);
+		        OutputStream os = response.getOutputStream();
+		        baos.writeTo(os);
+		        os.flush();
+		    } catch (Exception e1) {
+		    	e1.printStackTrace();
+		    }
+
+	       	System.out.println("printCertificado.htm");
+
+	  } catch (Exception e) {
+	   e.printStackTrace();
+	  }   
+	      	
+		return modelView;
+	}	
+
+	private ByteArrayOutputStream convertPDFToByteArrayOutputStream(String fileName) {
+		 
+		InputStream inputStream = null;
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		try {
+ 
+			inputStream = new FileInputStream(fileName);
+			byte[] buffer = new byte[1024];
+			baos = new ByteArrayOutputStream();
+ 
+			int bytesRead;
+			while ((bytesRead = inputStream.read(buffer)) != -1) {
+				baos.write(buffer, 0, bytesRead);
+			}
+ 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (inputStream != null) {
+				try {
+					inputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return baos;
+	}
+    
     @RequestMapping(value = "/CertificadoSucursal/emisionCertificado.htm", method = RequestMethod.POST)
   	public ModelAndView submitSucursal(@ModelAttribute("solicitudCertificadoVO") SolicitudCertificadoVO solicitudCertificadoVO) {
 

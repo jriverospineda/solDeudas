@@ -6,6 +6,7 @@ public class SolicitudCertificadoVO {
 	private String fechaInicio;
 	private String fechaFinal;
 	private int tipoCertificado;
+	private String boton;
 	
 	public String getRutEmpresa() {
 		return rutEmpresa;
@@ -30,6 +31,12 @@ public class SolicitudCertificadoVO {
 	}
 	public void setTipoCertificado(int tipoCertificado) {
 		this.tipoCertificado = tipoCertificado;
-	} 
+	}
+	public String getBoton() {
+		return boton;
+	}
+	public void setBoton(String boton) {
+		this.boton = boton;
+	}
 
 }

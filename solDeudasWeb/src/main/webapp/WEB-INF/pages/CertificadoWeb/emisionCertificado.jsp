@@ -105,10 +105,10 @@
 							<div class="col-md-4">
 								<div class="row pt-4">
 									<div class="col-md-4">
-										<button type="submit" class="btn">Generar</button>
+										<button type="submit" class="btn" name="boton" id="boton" value="${'submit'}">Generar</button>
 									</div>
 									<div class="col-md-4">
-										<button type="reset" class="btn">Limpiar</button>
+										<button type="submit" class="btn" name="boton" id="boton" value="${'reset'}">Limpiar</button>
 									</div>
 								</div>
 							</div>
@@ -120,6 +120,10 @@
 				<!-- Inicio tabla de resultados -->
 				<lista:if test="${tipoCertificado == '1'}">
 					<lista:if test="${not empty listaCertificadoVO}">
+						<br>
+						<div><center>
+							<label class="form-label">&nbsp;</label><button type="submit" class="btn" name="boton" id="boton" value="${'PDF_DeudaTotalEmpleador'}" title="Bajar Archivo en PDF">Bajar PDF</button>
+						</center></div>
 						<div>
 							<center>
 								<table width="100%" class="tabla-dos">
@@ -226,6 +230,12 @@
 				<!-- Inicio tabla de resultados -->
 				<lista:if test="${tipoCertificado == '3'}">
 					<lista:if test="${not empty listaCertificadoVO}">
+						<br>
+						<div>
+							<center>
+								<label class="form-label">&nbsp;</label><button type="submit" class="btn" name="boton" id="boton" value="${'PDF_MoraPresuntaEmpleador'}" title="Bajar Archivo en PDF">Bajar PDF</button>
+							</center>
+						</div>
 						<div>
 							<center>
 								<table width="100%" class="tabla-dos">

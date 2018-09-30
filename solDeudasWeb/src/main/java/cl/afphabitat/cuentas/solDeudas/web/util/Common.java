@@ -6,8 +6,6 @@ public class Common {
 
 	public static String fechaString(Date fechaIn){
 		String fecha = "";
-		//System.out.println("**** fechaIn) = " + fechaIn);
-		//System.out.println("**** fechaIn.getDay() = " + fechaIn.getDate());
 		
 		if (fechaIn.getDate() < 10)
 		{
@@ -27,12 +25,5 @@ public class Common {
 		
 		return fecha;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
