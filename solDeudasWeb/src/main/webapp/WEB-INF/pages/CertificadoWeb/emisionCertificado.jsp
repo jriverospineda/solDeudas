@@ -12,19 +12,12 @@
 	<link rel="stylesheet" href="../css/forms.css" type="text/css"	media="screen" />
 	<link rel="stylesheet" href="../css/habitat_public.css" type="text/css"	media="screen" />	
 <title>Emisi&oacute;n Certificado</title>
-<script src="../scripts/jquery-1.11.0.min.js"></script>
-<script src="../scripts/jquery.mask.min.js"></script>
-<script src="../scripts/jquery.validate.min.js"></script>
-<script src="../scripts/jquery.validate.habitat.js"></script>
-<style>
-
-	#formCertificado label.error {
-		margin-left: 10px;
-		width: auto;
-		display: inline;
-		color: red;
-	}
-</style>
+	<script src="../scripts/jquery-1.11.0.min.js"></script>
+	<script src="../scripts/jquery.mask.min.js"></script>
+	<script src="../scripts/jquery.validate.min.js"></script>
+	<script src="../scripts/jquery.validate.habitat.js"></script>
+	<script src="../scripts/jquery-ui.min.js"></script>
+	<script src="../scripts/jquery.Rut.js"></script>	
 </head>
 <body >
 	<div class="my-2 my-md-2">
@@ -43,11 +36,11 @@
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">Fecha Inicio</label>
-								<input type="text" name="fechaInicio" id="fechaInicio" class="form-control" placeholder="dd/mm/aaaa" value="${fechaInicio}"/>
+								<input type="text" name="fechaInicio" id="fechaInicio" class="form-control" value="${fechaInicio}"/>
 							</div>
 							<div class="col-md-4">
 								<label class="form-label">Fecha Final</label>
-								<input type="text" name="fechaFinal" id="fechaFinal" class="form-control" placeholder="dd/mm/aaaa" value="${fechaFinal}"/>
+								<input type="text" name="fechaFinal" id="fechaFinal" class="form-control"  value="${fechaFinal}"/>
 							</div>
 						</div>
 					</div >		
@@ -56,7 +49,7 @@
 							<div class="col-md-4">
 								<label class="form-label">Tipo Certificado</label>
 								<select name="tipoCertificado" id="tipoCertificado" class="form-control" path="tipoCertificado">
-									<option value="-1">Seleccione un tipo de Certificado</option>
+									<option>Seleccione un tipo de Certificado</option>
 									<lista:if test="${empty tipoCertificado}">									
 										<option value="1">Deuda Total del Empleador</option>
 										<option value="2">Detalle de Deuda Empleador</option>
@@ -329,17 +322,14 @@
 	</div>
 <script>
  $(document).ready(function() { 
-		$('.rut_format').mask('00.000.000-K',{'translation': { K: {pattern: /[kK0-9]/}}}, {reverse: true});
-		$('#fechaInicio').mask('00/00/0000');
-		$('#fechaFinal').mask('00/00/0000');
-		var combb = / /;
-		$.validator.addMethod("combo", function (value, element) {
-			return $.isNumeric( value );
-		});
+
 		// validate signup form on keyup and submit
 		$("#formCertificado").validate({
 			rules: {
-				rutEmpresa: "required",
+				rutEmpresa: {
+					required: true,
+					validaRut: true
+				},
 				fechaInicio: "required",
 				fechaFinal: "required",				
 				tipoCertificado: {
@@ -348,9 +338,7 @@
 				}
 			},
 			messages: {
-				rutEmpresa: "Ingrese Rut de la empresa",
-				fechaInicio: "Ingrese Fecha de inicio",
-				fechaFinal: "Ingrese Fecha de fin",
+
 				tipoCertificado: "Ingrese el Tipo de Certificado"
 			}
 		});

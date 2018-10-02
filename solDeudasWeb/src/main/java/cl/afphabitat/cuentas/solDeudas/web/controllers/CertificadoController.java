@@ -110,11 +110,13 @@ public class CertificadoController extends MultiActionController {
 	        GetCertDeudaRequest request = new GetCertDeudaRequest();
 	        GetCertDeudaResponse response = new GetCertDeudaResponse();
 	        System.out.println("**replace : " + solicitudCertificadoVO.getRutEmpresa().replaceAll("\\.", "").replaceAll("\\-", ""));
-	
+	        
 	        request.setCodigoUsuario("1");
 	        request.setFechaInicio(solicitudCertificadoVO.getFechaInicio());
 	        request.setFechaTermino(solicitudCertificadoVO.getFechaFinal());
 	        request.setRut(new BigDecimal(solicitudCertificadoVO.getRutEmpresa().replaceAll("\\.", "").replaceAll("\\-", "")));
+	        
+	        System.out.println("*** request : " + request);
 	        
 	        try {
 				response = gCert.getCertDeudaTotalEmpleador(request);
@@ -123,7 +125,7 @@ public class CertificadoController extends MultiActionController {
 				e.printStackTrace();
 			}
 	        
-	        System.out.println("*** response : " + response.getInformacionCertificado().length);
+	        System.out.println("*** response.length : " + response.getInformacionCertificado().length);
 	        
 	        listaCertificadoVO = new ArrayList<CertificadoVO>();
 	        certificadoVO = new CertificadoVO();
